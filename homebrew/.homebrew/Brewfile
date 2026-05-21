@@ -1,4 +1,7 @@
+# Tap
 tap "cargo-lambda/cargo-lambda"
+
+# Formulae
 brew "sqlite"
 brew "awscli"
 brew "cowsay"
@@ -26,6 +29,8 @@ brew "zoxide"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 brew "cargo-lambda/cargo-lambda/cargo-lambda"
+
+# Casks
 cask "affinity"
 cask "antigravity-cli"
 cask "beeper"
@@ -53,6 +58,8 @@ cask "visual-studio-code"
 cask "zalo"
 cask "zed"
 cask "zen"
+
+# Mac App Store
 mas "Command X", id: 6448461551
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
@@ -60,6 +67,8 @@ mas "Microsoft Word", id: 462054704
 mas "OneDrive", id: 823766827
 mas "PDFgear", id: 6469021132
 mas "Xcode", id: 497799835
+
+# Visual Studio Code Extensions
 vscode "atommaterial.a-file-icon-vscode"
 vscode "bradlc.vscode-tailwindcss"
 vscode "catppuccin.catppuccin-vsc"
@@ -100,4 +109,3 @@ vscode "subframe7536.custom-ui-style"
 vscode "tamasfe.even-better-toml"
 vscode "usernamehw.errorlens"
 vscode "vue.volar"
-npm "@datadog/cli"
