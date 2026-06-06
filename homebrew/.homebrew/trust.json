@@ -1,0 +1,5 @@
+{
+  "trustedformulae": [
+    "cargo-lambda/cargo-lambda/cargo-lambda"
+  ]
+}
