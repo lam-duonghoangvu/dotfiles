@@ -4,8 +4,8 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = dhvl2004
-	email = duonghoangvulam@gmail.com
+	name = lam.duonghoangvu
+	email = lamthedev@proton.me
 [http]
 	postBuffer = 524288000
 [init]
