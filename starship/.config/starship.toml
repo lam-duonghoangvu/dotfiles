@@ -154,8 +154,8 @@ vimcmd_visual_symbol = "[❮](bold fg:yellow)"
 
 [cmd_duration]
 show_milliseconds = true
-format = " in $duration "
-style = ""
+format = "  in $duration "
+style = "bold fg:text"
 disabled = false
 show_notifications = true
 min_time_to_notify = 45000
