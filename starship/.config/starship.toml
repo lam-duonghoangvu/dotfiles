@@ -5,7 +5,6 @@ $status\
 $username\
 $directory\
 $git_branch\
-$git_status\
 $c\
 $rust\
 $golang\
@@ -16,6 +15,7 @@ $kotlin\
 $haskell\
 $python\
 $conda\
+$swift\
 $time\
 $cmd_duration\
 $line_break\
@@ -25,37 +25,26 @@ palette = 'catppuccin_mocha'
 
 [status]
 disabled = false
-success_symbol = "[┌   ](bold fg:green)"
-symbol = "[┌   ](bold fg:red)"
+success_symbol = "[┌](bold fg:green)"
+symbol = "[┌](bold fg:red)"
 format = "$symbol"
 
 [username]
 show_always = true
 style_user = "bold fg:sapphire"
 style_root = "bold fg:sapphire"
-format = "[\\[ $user \\]]($style)"
+format = "[\\[  $user \\]]($style)"
 
 [directory]
 style = "bold fg:peach"
-format = "[\\[ $path \\]]($style)"
+format = "[\\[   $path \\]]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
 
 [git_branch]
 symbol = ""
 style = "bold fg:yellow"
-format = "[\\[ $symbol $branch ]($style)"
-
-[git_status]
-style = "bold fg:yellow"
-format = "[$all_status$ahead_behind \\]]($style)"
+format = "[\\[ $symbol $branch \\]]($style)"
 
 [nodejs]
 symbol = ""
@@ -108,10 +97,15 @@ style = "bold fg:green"
 format = "[\\[ $symbol $context \\]]($style)"
 
 [conda]
-symbol = "  "
+symbol = ""
 style = "bold fg:green"
-format = "[\\[ $symbol$environment \\]]($style)"
+format = "[\\[ $symbol $environment \\]]($style)"
 ignore_base = false
+
+[swift]
+symbol = "󰛥"
+style = "bold fg:green"
+format = "[\\[ $symbol $version \\]]($style)"
 
 [time]
 disabled = false
