@@ -1,74 +1,96 @@
-# Tap
 tap "cargo-lambda/cargo-lambda"
-
-# Formulae
+# Command-line interface for SQLite
 brew "sqlite"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# Apjanke's fork of the classic cowsay project
 brew "cowsay"
-brew "docker"
-brew "duckdb"
+# Utility to configure multi-display resolutions and arrangements
+brew "displayplacer"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
+# Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Command-line fuzzy finder written in Go
 brew "fzf"
-brew "node"
-brew "gemini-cli"
-brew "gh"
+# Distributed revision control system
 brew "git"
+# Mac App Store command-line interface
 brew "mas"
+# Deep clean and optimize your Mac
 brew "mole"
+# Fast, highly customisable system info script
 brew "neofetch"
-brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Modern API client that lives in your terminal
 brew "posting"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Formatting technology for Swift source code
 brew "swift-format"
+# Tool to enforce Swift style and conventions
 brew "swiftlint"
+# Official tldr client written in Rust
 brew "tlrc"
+# Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-brew "cargo-lambda/cargo-lambda/cargo-lambda"
-
-# Casks
+# Cargo Lambda is a Cargo subcommand to help you work with AWS Lambda.
+brew "cargo-lambda/cargo-lambda/cargo-lambda", trusted: true
+# Image editing and design software
 cask "affinity"
+# Terminal interface for Antigravity agents
 cask "antigravity-cli"
+# Universal chat app powered by Matrix
 cask "beeper"
-cask "bitwarden"
-cask "chatgpt"
-cask "claude"
-cask "claude-code"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
+# Free app that makes your Internet safer
 cask "cloudflare-warp"
+# OpenAI's coding agent that runs in your terminal
 cask "codex"
+# Databases and SQL IDE
 cask "datagrip"
+# Voice and text chat software
 cask "discord"
-cask "docker-desktop"
-cask "font-fira-code"
-cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-cask "google-gemini"
-cask "grandperspective"
-cask "jordanbaird-ice"
-cask "latest"
-cask "raycast"
+# Free and open-source RSS reader
+cask "netnewswire"
+# VPN client focusing on security
+cask "protonvpn"
+# Tool to reverse the direction of scrolling
 cask "scroll-reverser"
+# Open-source code editor
 cask "visual-studio-code"
+# Messaging and calling application
 cask "zalo"
-cask "zed"
+# Gecko based web browser
 cask "zen"
-
-# Mac App Store
 mas "Command X", id: 6448461551
+mas "DaVinci Resolve", id: 571213070
+mas "Keynote", id: 361285480
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
+mas "Numbers", id: 361304891
 mas "OneDrive", id: 823766827
-mas "PDFgear", id: 6469021132
+mas "Pages", id: 361309726
+mas "ReTab", id: 6736950080
+mas "uBlock Origin Lite", id: 6745342698
 mas "Xcode", id: 497799835
-
-# Visual Studio Code Extensions
 vscode "atommaterial.a-file-icon-vscode"
 vscode "bradlc.vscode-tailwindcss"
 vscode "catppuccin.catppuccin-vsc"
@@ -84,6 +106,7 @@ vscode "gitlab.gitlab-workflow"
 vscode "hediet.vscode-drawio"
 vscode "inferrinizzard.prettier-sql-vscode"
 vscode "kevinrose.vsc-python-indent"
+vscode "llvm-vs-code-extensions.lldb-dap"
 vscode "mhutchie.git-graph"
 vscode "ms-python.debugpy"
 vscode "ms-python.mypy-type-checker"
@@ -101,8 +124,8 @@ vscode "oderwat.indent-rainbow"
 vscode "pkief.material-icon-theme"
 vscode "redhat.vscode-yaml"
 vscode "repreng.csv"
-vscode "ritwickdey.liveserver"
 vscode "streetsidesoftware.code-spell-checker"
 vscode "subframe7536.custom-ui-style"
+vscode "swiftlang.swift-vscode"
 vscode "tamasfe.even-better-toml"
 vscode "usernamehw.errorlens"
