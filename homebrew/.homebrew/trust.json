@@ -1,5 +1,3 @@
 {
-  "trustedformulae": [
-    "cargo-lambda/cargo-lambda/cargo-lambda"
-  ]
+  "trustedtaps": ["cargo-lambda/tap"]
 }
