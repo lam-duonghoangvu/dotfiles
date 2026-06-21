@@ -97,12 +97,9 @@ Once the brew packages are installed (including `stow`), you can symlink configu
 From the repository root directory, stow the packages you want to use:
 
 ```bash
-stow zsh
-stow git
-stow nvim
-stow tmux
-stow starship
-stow ghostty
-stow yazi
-stow fastfetch
+cd ~/dotfiles
+```
+
+```bash
+stow <package>
 ```
