@@ -1,32 +1,46 @@
-tap "cargo-lambda/cargo-lambda"
+tap "cargo-lambda/tap", trusted: true
 # Command-line interface for SQLite
 brew "sqlite"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
+# Create and run Linux containers using lightweight virtual machines
+brew "container"
 # Apjanke's fork of the classic cowsay project
 brew "cowsay"
-# Utility to configure multi-display resolutions and arrangements
-brew "displayplacer"
 # Pack, ship and run any application as a lightweight container
-brew "docker", link: false
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
-# Command-line fuzzy finder written in Go
-brew "fzf"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Distributed revision control system
 brew "git"
+# CLI for Infisical
+brew "infisical"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Lazier way to manage everything docker
+brew "lazydocker"
 # Mac App Store command-line interface
 brew "mas"
 # Deep clean and optimize your Mac
 brew "mole"
-# Fast, highly customisable system info script
-brew "neofetch"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Modern API client that lives in your terminal
 brew "posting"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
@@ -41,12 +55,14 @@ brew "tlrc"
 brew "uv"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Real-time type-ahead completion for Zsh
+brew "zsh-autocomplete"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
 # Cargo Lambda is a Cargo subcommand to help you work with AWS Lambda.
-brew "cargo-lambda/cargo-lambda/cargo-lambda", trusted: true
+brew "cargo-lambda/tap/cargo-lambda"
 # Image editing and design software
 cask "affinity"
 # Terminal interface for Antigravity agents
@@ -77,8 +93,6 @@ cask "scroll-reverser"
 cask "visual-studio-code"
 # Messaging and calling application
 cask "zalo"
-# Gecko based web browser
-cask "zen"
 mas "Command X", id: 6448461551
 mas "DaVinci Resolve", id: 571213070
 mas "Keynote", id: 361285480
@@ -100,10 +114,7 @@ vscode "cweijan.vscode-office"
 vscode "dmitrydorofeev.empty-indent"
 vscode "donjayamanne.githistory"
 vscode "esbenp.prettier-vscode"
-vscode "github.codespaces"
-vscode "github.remotehub"
 vscode "gitlab.gitlab-workflow"
-vscode "hediet.vscode-drawio"
 vscode "inferrinizzard.prettier-sql-vscode"
 vscode "kevinrose.vsc-python-indent"
 vscode "llvm-vs-code-extensions.lldb-dap"
