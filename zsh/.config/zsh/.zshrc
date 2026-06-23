@@ -1,3 +1,29 @@
+# XDG base directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# Personal binaries scripts
+export PATH="$HOME/.local/bin:$PATH"
+
+# History
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+
+# Shell
+setopt AUTO_CD
+setopt NOBEEP
+setopt NUMERIC_GLOB_SORT
+
 # NOTE: starship
 eval "$(starship init zsh)"
 
@@ -5,12 +31,15 @@ eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 # NOTE: eza (ls replacement)
-alias ls="eza --color=always --icons=always --long --git --no-filesize --no-time --no-user --no-permissions"
+alias ls="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time"
+alias ll="eza --color --icons --long --header --git"
+alias la="eza --color --icons --long --all --header --git"
+alias tree="eza --tree --color --icons"
 
 # NOTE: bat (cat replacement)
-alias cat="bat --color=always -n --line-range :500"
+alias cat="bat --color -n --line-range :500"
 # Use bat in man
-export MANPAGER="bat -plman"
+export MANPAGER="bat -l man -p"
 
 # NOTE: zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
