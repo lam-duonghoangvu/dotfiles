@@ -1,15 +1,3 @@
-# XDG base directories
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-
-# Personal binaries scripts
-export PATH="$HOME/.local/bin:$PATH"
-
-# Sessions directory
-export SHELL_SESSION_DIR="$XDG_STATE_HOME/zsh/sessions"
-
 # History
 HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTSIZE=100000
@@ -41,8 +29,6 @@ alias tree="eza --tree --color --icons"
 
 # NOTE: bat (cat replacement)
 alias cat="bat --color=always -n --line-range :500"
-# Use bat in man
-export MANPAGER="bat -l man -p"
 
 # NOTE: zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
