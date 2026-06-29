@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.Brewfile": "ruby",
-    "config": "properties"
-  }
-}
