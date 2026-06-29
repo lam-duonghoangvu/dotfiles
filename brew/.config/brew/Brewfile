@@ -27,8 +27,6 @@ brew "fd"
 brew "git"
 # CLI for Infisical
 brew "infisical"
-# Handy way to save and run project-specific commands
-brew "just"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Lazier way to manage everything docker
@@ -65,8 +63,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # Cargo Lambda is a Cargo subcommand to help you work with AWS Lambda.
 brew "cargo-lambda/tap/cargo-lambda"
-# Image editing and design software
-cask "affinity"
 # Terminal interface for Antigravity agents
 cask "antigravity-cli"
 # Universal chat app powered by Matrix
@@ -79,8 +75,6 @@ cask "cloudflare-warp"
 cask "codex"
 # Databases and SQL IDE
 cask "datagrip"
-# Voice and text chat software
-cask "discord"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
@@ -96,7 +90,6 @@ cask "visual-studio-code"
 # Messaging and calling application
 cask "zalo"
 mas "Command X", id: 6448461551
-mas "DaVinci Resolve", id: 571213070
 mas "Keynote", id: 361285480
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
@@ -107,17 +100,13 @@ mas "Pages", id: 361309726
 mas "ReTab", id: 6736950080
 mas "uBlock Origin Lite", id: 6745342698
 mas "Xcode", id: 497799835
-vscode "atommaterial.a-file-icon-vscode"
 vscode "bradlc.vscode-tailwindcss"
 vscode "catppuccin.catppuccin-vsc"
 vscode "charliermarsh.ruff"
-vscode "codezombiech.gitignore"
 vscode "cweijan.vscode-office"
-vscode "dmitrydorofeev.empty-indent"
 vscode "esbenp.prettier-vscode"
 vscode "gitlab.gitlab-workflow"
 vscode "inferrinizzard.prettier-sql-vscode"
-vscode "kevinrose.vsc-python-indent"
 vscode "ms-python.debugpy"
 vscode "ms-python.mypy-type-checker"
 vscode "ms-python.python"
@@ -135,6 +124,7 @@ vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-repositories"
 vscode "oderwat.indent-rainbow"
 vscode "pkief.material-icon-theme"
+vscode "pkief.material-product-icons"
 vscode "redhat.vscode-yaml"
 vscode "repreng.csv"
 vscode "streetsidesoftware.code-spell-checker"
