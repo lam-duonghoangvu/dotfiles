@@ -30,15 +30,14 @@ alias tree="eza --tree --color --icons"
 # NOTE: bat (cat replacement)
 alias cat="bat --color=always -n --line-range :500"
 
-# NOTE: zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# NOTE: zsh-autocomplete
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-zstyle -e ':autocomplete:*:*' list-lines 'reply=5'
-
-# NOTE: zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if command -v brew &>/dev/null; then
+  _brew=$(brew --prefix)
+  source "$_brew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  source "$_brew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+  zstyle -e ':autocomplete:*:*' list-lines 'reply=5'
+  source "$_brew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  unset _brew
+fi
 # Make Tab accept inline suggestions from zsh-autosuggestions if present,
 # otherwise fall back to normal autocomplete completion
 _original_tab_widget=$(bindkey '^I' | awk '{print $2}')
