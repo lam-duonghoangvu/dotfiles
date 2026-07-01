@@ -16,41 +16,38 @@ setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
 
 # NOTE: starship
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # NOTE: zoxide (cd replacement)
-eval "$(zoxide init --cmd cd zsh)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
 
 # NOTE: eza (ls replacement)
-alias ls="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time"
-alias ll="eza --color --icons --long --header --git"
-alias la="eza --color --icons --long --all --header --git"
-alias tree="eza --tree --color --icons"
+if command -v eza &>/dev/null; then
+  alias ls="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time"
+  alias ll="eza --color --icons --long --header --git"
+  alias la="eza --color --icons --long --all --header --git"
+  alias tree="eza --tree --color --icons"
+fi
 
 # NOTE: bat (cat replacement)
-alias cat="bat --color=always -n --line-range :500"
+if command -v bat &>/dev/null; then
+  alias cat="bat --color=always -n --line-range :500"
+fi
 
+# NOTE: zsh-syntax-highlighting, zsh-autocomplete, zsh-autosuggestions
 if command -v brew &>/dev/null; then
   _brew=$(brew --prefix)
   source "$_brew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
   source "$_brew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-  zstyle -e ':autocomplete:*:*' list-lines 'reply=5'
   source "$_brew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
   unset _brew
-fi
-# Make Tab accept inline suggestions from zsh-autosuggestions if present,
-# otherwise fall back to normal autocomplete completion
-_original_tab_widget=$(bindkey '^I' | awk '{print $2}')
-if [[ -z "$_original_tab_widget" ]]; then
-  _original_tab_widget="expand-or-complete"
-fi
 
-_complete_or_accept() {
-  if [[ -n "$POSTDISPLAY" ]]; then
-    zle autosuggest-accept
-  else
-    zle $_original_tab_widget
-  fi
-}
-zle -N _complete_or_accept
-bindkey '^I' _complete_or_accept
+  bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
+  bindkey -M menuselect '^[[C' .forward-char  '^[OC' .forward-char
+  bindkey -M menuselect '\r' .accept-line
+  bindkey '^I' autosuggest-accept
+fi
