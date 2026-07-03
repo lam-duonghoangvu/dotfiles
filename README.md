@@ -60,3 +60,8 @@ cd ~/dotfiles
 ```zsh
 stow <package>
 ```
+
+### tmux
+```zsh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
