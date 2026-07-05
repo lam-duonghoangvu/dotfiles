@@ -6,7 +6,7 @@ return {
       require("lualine").setup({
         options = {
           theme = "dracula",
-          globalstatus = true, -- Set to true to show a single statusline at the bottom of the editor window
+          globalstatus = true,
           component_separators = { left = "｜", right = "｜" },
           section_separators = { left = "", right = "" },
         },
