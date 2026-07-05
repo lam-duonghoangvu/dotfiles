@@ -15,6 +15,17 @@ setopt AUTO_CD
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
 
+# Enable Vim Mode
+bindkey -v
+
+# Default Editor
+
+# NOTE: neovim
+if command -v nvim &>/dev/null; then
+  alias nv="nvim"
+  export EDITOR=nvim
+fi
+
 # NOTE: starship
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
@@ -23,6 +34,17 @@ fi
 # NOTE: zoxide (cd replacement)
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
+fi
+
+# NOTE: fzf
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --zsh)"
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+
+  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && (eza --tree --color=always {} | head -200) || (bat --color=always --style=numbers --line-range :500 {} 2>/dev/null || cat {})'"
+  export FZF_CTRL_R_OPTS="--preview ''"
 fi
 
 # NOTE: eza (ls replacement)
@@ -48,6 +70,6 @@ if command -v brew &>/dev/null; then
 
   bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
   bindkey -M menuselect '^[[C' .forward-char  '^[OC' .forward-char
-  bindkey -M menuselect '\r' .accept-line
-  bindkey '^I' autosuggest-accept
+  bindkey -M menuselect '^M' .accept-line
+  bindkey '^Y' autosuggest-accept
 fi
