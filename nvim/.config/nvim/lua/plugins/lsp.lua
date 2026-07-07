@@ -13,11 +13,22 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "j-hui/fidget.nvim",
   },
-
   config = function()
     require("conform").setup({
       formatters_by_ft = {
-      }
+        lua = { "stylua" },
+        python = { "ruff_format", "ruff_organize_imports" },
+        rust = { "rustfmt" },
+        go = { "gofmt", "goimports" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+      },
     })
     local cmp = require('cmp')
     local cmp_lsp = require("cmp_nvim_lsp")
@@ -39,7 +50,7 @@ return {
         "vtsls",
       },
       handlers = {
-        function(server_name)         -- default handler (optional)
+        function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
@@ -90,7 +101,7 @@ return {
             }
           }
         end,
-        }
+      }
     })
 
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -98,34 +109,80 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)           -- For `luasnip` users.
+          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
       mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
---        ["<C-Space>"] = cmp.mapping.complete(),
       }),
       sources = cmp.config.sources({
         { name = "copilot", group_index = 2 },
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },         -- For luasnip users.
+        { name = 'luasnip' }, -- For luasnip users.
       }, {
         { name = 'buffer' },
       })
     })
 
+    -- Use buffer source for `/` and `?` (search)
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
+
+    -- Use cmdline & path source for ':' (command-line)
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false }
+    })
+
+    local virtual_text_config = {
+      spacing = 4,
+      source = "if_many",
+      prefix = "●",
+    }
+
     vim.diagnostic.config({
-      -- update_in_insert = true,
+      virtual_text = virtual_text_config,
       float = {
         focusable = false,
         style = "minimal",
         border = "rounded",
-        source = "always",
         header = "",
         prefix = "",
       },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "󰅚 ",
+          [vim.diagnostic.severity.WARN] = "󰀪 ",
+          [vim.diagnostic.severity.INFO] = "󱔁 ",
+          [vim.diagnostic.severity.HINT] = "󰌶 ",
+        },
+      },
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
     })
+
+    -- Toggle virtual text (inline warnings/errors)
+    vim.keymap.set("n", "<leader>td", function()
+      local current = vim.diagnostic.config().virtual_text
+      if current then
+        vim.diagnostic.config({ virtual_text = false })
+        vim.notify("Inline diagnostics disabled", vim.log.levels.INFO)
+      else
+        vim.diagnostic.config({ virtual_text = virtual_text_config })
+        vim.notify("Inline diagnostics enabled", vim.log.levels.INFO)
+      end
+    end, { desc = "Toggle inline diagnostics" })
   end
 }
