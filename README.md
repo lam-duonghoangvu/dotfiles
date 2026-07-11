@@ -4,48 +4,9 @@ Personal configurations and dotfiles managed with GNU Stow.
 
 ## Installation Guide
 
-Follow these steps to set up your environment on a new machine.
+### Setup
 
-### Install Zsh
-
-#### On Ubuntu / Debian:
-
-```shell
-sudo apt update
-sudo apt install zsh -y
-```
-
-#### On Fedora / RHEL:
-
-```shell
-sudo dnf install zsh -y
-```
-
-#### On Arch Linux:
-
-```shell
-sudo pacman -S zsh --noconfirm
-```
-
----
-
-### Install Homebrew
-
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
----
-
-### Install Brew Formulae and Casks
-
-This repository includes a [Brewfile](brew/.Brewfile) listing all necessary tools, fonts, casks (GUI apps), and Mac App Store apps.
-
-```zsh
-brew bundle install --file ~/.config/brew/Brewfile
-```
-
----
+Install `zsh`, `Homebrew` and dependencies with `make`
 
 ### Apply Dotfiles
 
