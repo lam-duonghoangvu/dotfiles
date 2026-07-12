@@ -1,13 +1,13 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
-format = "$directory$git_branch$character"
+format = "$directory$git_branch$line_break$character"
 add_newline = false
 
 palette = 'catppuccin_mocha'
 
 [directory]
-style = "bold fg:peach"
-format = "[\\($path\\)]($style)"
+style = "bold fg:lavender"
+format = "[$path]($style)"
 truncation_length = 8
 truncate_to_repo = false
 
