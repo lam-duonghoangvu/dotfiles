@@ -6,5 +6,5 @@ font-feature = -calt
 font-feature = -dlig
 macos-option-as-alt = left
 macos-titlebar-style = hidden
-macos-icon = custom
-macos-custom-icon = "~/.config/ghostty/Ghostty.icns"
+background-opacity = 0.8
+background-blur = true
