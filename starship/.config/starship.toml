@@ -18,7 +18,7 @@ format = " [\\($branch\\)]($style)"
 [character]
 success_symbol = "[>](bold fg:green)"
 error_symbol = "[>](bold fg:red)"
-vimcmd_symbol = "[<](bold fg:green)"
+vimcmd_symbol = "[>>>](bold fg:green)"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
