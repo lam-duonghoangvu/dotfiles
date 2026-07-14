@@ -11,7 +11,6 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
 
 # Shell
-setopt AUTO_CD
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
 
