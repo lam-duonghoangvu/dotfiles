@@ -1,3 +1,6 @@
+# Must have
+brew "cowsay"
+
 # Bash default commands replacement
 brew "zoxide"
 brew "eza"
@@ -14,7 +17,6 @@ brew "tree-sitter-cli"
 brew "btop"
 brew "tlrc"
 brew "stow"
-brew "mole"
 brew "starship"
 brew "fastfetch"
 
@@ -25,10 +27,12 @@ brew "bun"
 brew "node"
 brew "docker"
 brew "docker-compose"
-brew "colima"
 brew "kubernetes-cli"
 brew "lazydocker"
 brew "lazygit"
+brew "posting"
+brew "ipython"
+brew "jupytext"
 
 # zsh
 brew "zsh-autocomplete"

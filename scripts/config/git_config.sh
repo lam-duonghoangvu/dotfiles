@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/colors.sh"
+source "$SCRIPT_DIR/../variables/colors.sh"
 
 echo -e "${CYAN}GIT CONFIG${RESET}"
 git_username=$(git config --global user.name 2>/dev/null || true)

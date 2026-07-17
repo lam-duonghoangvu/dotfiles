@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/colors.sh"
+source "$SCRIPT_DIR/variables/colors.sh"
 
 DOTFILES_REPO="https://github.com/lam-duonghoangvu/dotfiles.git"
 

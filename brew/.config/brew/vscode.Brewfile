@@ -1,4 +1,6 @@
 cask "visual-studio-code"
+
+# Extensions
 vscode "catppuccin.catppuccin-vsc"
 vscode "charliermarsh.ruff"
 vscode "cweijan.vscode-office"

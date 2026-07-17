@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/colors.sh"
+source "$SCRIPT_DIR/../variables/colors.sh"
 
 TMUX_TPM_DIR="$HOME/.local/share/tmux/plugins/tpm"
 TMUX_INSTALL_PLUGINS="$TMUX_TPM_DIR/bin/install_plugins"

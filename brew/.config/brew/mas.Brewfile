@@ -1,4 +1,6 @@
 brew "mas"
+
+# Applications
 mas "Command X", id: 6448461551
 mas "Keynote", id: 361285480
 mas "Microsoft Excel", id: 462058435
