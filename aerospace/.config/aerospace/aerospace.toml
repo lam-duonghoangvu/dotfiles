@@ -92,7 +92,7 @@ outer.top =        [{ monitor.main = 0 }, 0]
 alt-shift-a = 'layout accordion horizontal vertical'
 alt-shift-t = 'layout tiles horizontal vertical'
 
-alt-ctrl-shift-f = 'fullscreen'
+alt-shift-f = 'fullscreen'
 alt-ctrl-f = 'layout floating tiling'
 
 alt-shift-left = 'join-with left'
@@ -137,7 +137,6 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
-alt-shift-enter = 'mode apps'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -146,9 +145,6 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
-
-[mode.apps.binding]
-alt-w = ['exec-and-forget open -a /Applications/WezTerm.app', 'mode main']
 
 [workspace-to-monitor-force-assignment]
 1 = '^DELL S.*$'
