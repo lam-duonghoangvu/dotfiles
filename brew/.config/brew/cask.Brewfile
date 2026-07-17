@@ -7,7 +7,6 @@ cask "scroll-reverser"
 
 # Developer tools
 cask "ghostty"
-cask "visual-studio-code"
 cask "datagrip"
 cask "antigravity-cli"
 cask "claude-code@latest"
