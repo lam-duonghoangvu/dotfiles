@@ -27,3 +27,4 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brew/Brewfile"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
+

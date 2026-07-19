@@ -28,6 +28,11 @@ if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
+# fastfetch
+if command -v fastfetch &>/dev/null; then
+  alias ff="fastfetch"
+fi
+
 # zoxide (cd replacement)
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
@@ -47,8 +52,9 @@ fi
 # eza (ls replacement)
 if command -v eza &>/dev/null; then
   alias ls="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time"
+  alias la="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time --all"
   alias ll="eza --color --icons --long --header --git"
-  alias la="eza --color --icons --long --all --header --git"
+  alias lla="eza --color --icons --long --header --git --all"
   alias tree="eza --tree --color --icons"
 fi
 
@@ -65,8 +71,18 @@ if command -v brew &>/dev/null; then
   source "$_brew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
   unset _brew
 
+  # Navigation in menu selection
   bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
   bindkey -M menuselect '^[[C' .forward-char  '^[OC' .forward-char
+  bindkey -M menuselect 'h' .backward-char
+  bindkey -M menuselect 'l' .forward-char
+
+  bindkey -M menuselect '^N' down-history
+  bindkey -M menuselect '^P' up-history
   bindkey -M menuselect '^M' .accept-line
   bindkey '^Y' autosuggest-accept
+
+  bindkey -M menuselect '^[' send-break
 fi
+
+
