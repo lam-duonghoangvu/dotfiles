@@ -1,0 +1,24 @@
+* {
+  font-family: var(--theme-font-family) !important;
+}
+
+#zen-main-app-wrapper,
+#main-window,
+window,
+#browser,
+#appcontent,
+#zen-appcontent {
+  background-color: var(--color-bg) !important;
+}
+
+#tabbrowser-tabpanels,
+.browserSidebarContainer,
+.tabbrowser-tabpanel {
+  background-color: var(--color-bg) !important;
+}
+
+#statuspanel-label {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+}

@@ -1,0 +1,47 @@
+#vertical-pinned-tabs-container > .zen-workspace-tabs-section[hidden="true"] {
+  display: none !important;
+}
+
+tabs {
+  counter-reset: tab-counter;
+}
+hbox.zen-essentials-container:not([hidden="true"]) tab:not([zen-glance-tab="true"]),
+zen-workspace[active] tab:not([zen-glance-tab="true"]) {
+  counter-increment: tab-counter;
+}
+zen-folder:has(.tab-group-label[aria-expanded="false"]) tab:not([folder-active="true"]) {
+  counter-increment: none;
+}
+
+@media (-moz-bool-pref: "zen.view.sidebar-expanded") {
+  tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content::after {
+    content: counter(
+      tab-counter
+    );
+    font-size: var(--font_size, 80%);
+    color: var(--color-accent);
+    text-align: center;
+    width: 20px;
+    line-height: 20px;
+    margin-right: 3px; /* Changed to 3px to align with the Close Button */
+  }
+
+  /* Hide the "X" close button by default and show on hover */
+  tab .tab-close-button {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    margin: 0;
+  }
+  tab:hover .tab-close-button {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /*  Hide tab numbers on the right side when hovering over */
+  tab:not([zen-glance-tab="true"]) > .tab-stack > .tab-content:hover::after {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+  }
+}

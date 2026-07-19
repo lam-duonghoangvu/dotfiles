@@ -1,0 +1,18 @@
+@import url("../config/color-palette/catppuccin/theme.css");
+
+:root {
+  --theme-font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+
+  --zen-colors-bg: var(--color-bg) !important;
+  --zen-colors-secondary: var(--mantle) !important;
+  --zen-colors-tertiary: var(--surface0) !important;
+  --zen-colors-border: var(--color-border) !important;
+  --zen-colors-input-bg: var(--surface0) !important;
+  --zen-colors-primary: var(--color-accent) !important;
+  --zen-main-browser-background: var(--color-bg) !important;
+  --zen-dialog-background: var(--color-bg) !important;
+
+  --essentials-tab-icons-size: 30px;
+  --pinned-tab-icons-size: 26px;
+  --normal-tab-icons-size: 26px;
+}

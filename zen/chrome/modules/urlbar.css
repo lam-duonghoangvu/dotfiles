@@ -1,0 +1,7 @@
+#urlbar:not([usertyping], [searchmode]) > .urlbarView {
+  display: none !important;
+}
+
+#urlbar #urlbar-results div.urlbarView-row[row-selectable][type="top_site"] {
+  display: none !important;
+}

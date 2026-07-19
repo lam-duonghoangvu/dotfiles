@@ -1,0 +1,13 @@
+#navigator-toolbox,
+#zen-sidebar-web-panel,
+#sidebar-box,
+.zen-sidebar-panel {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+#sidebar-search-container > #search-box,
+#viewButton {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+}

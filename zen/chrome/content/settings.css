@@ -1,0 +1,11 @@
+@-moz-document url-prefix(about:preferences), url-prefix(about:settings) {
+  body, page, #categories {
+    color: var(--color-text) !important;
+  }
+}
+@-moz-document url(about:blank), url(about:newtab), url-prefix(about:) {
+  :root, body, page, #aboutPageContainer, * {
+    color: var(--color-text) !important;
+    font-family: var(--theme-font-family) !important;
+  }
+}
