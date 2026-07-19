@@ -1,7 +1,65 @@
-@import url("./hex.css");
-@import url("./rgb.css");
-
 :root {
+  /* Hex Palette */
+  --white: #ffffff;
+  --black: #000000;
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --overlay1: #7f849c;
+  --overlay0: #6c7086;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+
+  /* RGB Triplets Palette */
+  --white-rgb: 255, 255, 255;
+  --black-rgb: 0, 0, 0;
+  --rosewater-rgb: 245, 224, 220;
+  --flamingo-rgb: 242, 205, 205;
+  --pink-rgb: 245, 194, 231;
+  --mauve-rgb: 203, 166, 247;
+  --red-rgb: 243, 139, 168;
+  --maroon-rgb: 235, 160, 172;
+  --peach-rgb: 250, 179, 135;
+  --yellow-rgb: 249, 226, 175;
+  --green-rgb: 166, 227, 161;
+  --teal-rgb: 148, 226, 213;
+  --sky-rgb: 137, 220, 235;
+  --sapphire-rgb: 116, 199, 236;
+  --blue-rgb: 137, 180, 250;
+  --lavender-rgb: 180, 190, 254;
+  --text-rgb: 205, 214, 244;
+  --subtext1-rgb: 186, 194, 222;
+  --subtext0-rgb: 166, 173, 200;
+  --overlay2-rgb: 147, 153, 178;
+  --overlay1-rgb: 127, 132, 156;
+  --overlay0-rgb: 108, 112, 134;
+  --surface2-rgb: 88, 91, 112;
+  --surface1-rgb: 69, 71, 90;
+  --surface0-rgb: 49, 50, 68;
+  --base-rgb: 30, 30, 46;
+  --mantle-rgb: 24, 24, 37;
+  --crust-rgb: 17, 17, 27;
+
+  /* Basic Color Aliases */
   --color-white: var(--white);
   --color-white-rgb: var(--white-rgb);
   --color-black: var(--black);
@@ -37,6 +95,7 @@
   --color-lavender: var(--lavender);
   --color-lavender-rgb: var(--lavender-rgb);
 
+  /* Gray Scale & UI Surface System */
   --color-base-gray-10: var(--crust);
   --color-base-gray-10-rgb: var(--crust-rgb);
   --color-base-gray-20: var(--mantle);
@@ -64,6 +123,7 @@
   --color-base-gray-120: var(--white);
   --color-base-gray-120-rgb: var(--white-rgb);
 
+  /* High-Level Functional Aliases */
   --color-bg: var(--base);
   --color-bg-rgb: var(--base-rgb);
   --color-surface: var(--surface0);
