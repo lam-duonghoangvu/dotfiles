@@ -1,0 +1,21 @@
+@import url("./hex.css");
+@import url("./rgb.css");
+
+:root {
+  --color-bg:              var(--base);
+  --color-bg-rgb:          var(--base-rgb);
+  --color-surface:         var(--surface0);
+  --color-surface-rgb:     var(--surface0-rgb);
+  --color-surface-hover:   var(--surface1);
+  --color-surface-hover-rgb:   var(--surface1-rgb);
+  --color-surface-selected:   var(--surface2);
+  --color-surface-selected-rgb:   var(--surface2-rgb);
+  --color-accent:          var(--mauve);
+  --color-accent-rgb:      var(--mauve-rgb);
+  --color-border:          var(--surface1);
+  --color-border-rgb:      var(--surface1-rgb);
+  --color-text:            var(--text);
+  --color-text-rgb:        var(--text-rgb);
+  --color-subtext:         var(--subtext0);
+  --color-subtext-rgb:     var(--subtext0-rgb);
+}
