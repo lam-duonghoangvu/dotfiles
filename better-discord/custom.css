@@ -1,0 +1,9 @@
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css");
+
+:root {
+  --font-family: 'JetBrains Mono', 'JetBrainsMono Nerd Font', monospace;
+}
+
+* {
+  font-family: var(--font-family) !important;
+}

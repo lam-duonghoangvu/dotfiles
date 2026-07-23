@@ -1,0 +1,168 @@
+@import url('https://lam-duonghoangvu.github.io/dotfiles/config/color-palette/catppuccin/theme.css');
+
+:root {
+  --font-family: 'JetBrains Mono', 'JetBrainsMono Nerd Font', monospace;
+
+  --header-height: 48px;
+  --filters-pane-width: 220px;
+  --min-sidebar-width: 280px;
+  --max-sidebar-width: 800px;
+  --threads-list-item-height: 54px;
+
+  --pinned-thread-base-size: 64px;
+  --pinned-thread-group-img-size: calc(var(--pinned-thread-base-size) / 1.5);
+  --pinned-thread-height: calc(var(--pinned-thread-base-size) + (var(--pinned-thread-base-size) / 1.4));
+  --pinned-thread-width: calc(var(--pinned-thread-base-size) + (var(--pinned-thread-base-size) / 2.5));
+
+  --color-primary: var(--color-accent);
+  --color-primary-rgb: var(--color-accent-rgb);
+
+  --color-fg: var(--color-text);
+  --color-fg-rgb: var(--color-text-rgb);
+
+  --color-gray-rgb: var(--color-base-gray-70-rgb);
+
+  --color-base-black: var(--color-black);
+  --color-base-black-rgb: var(--color-black-rgb);
+  --color-base-white: var(--color-white);
+
+  --color-syntax-red: var(--color-red);
+  --color-syntax-orange: var(--color-orange);
+  --color-syntax-yellow: var(--color-yellow);
+  --color-syntax-green: var(--color-green);
+  --color-syntax-cyan: var(--color-cyan);
+  --color-syntax-purple: var(--color-purple);
+  --color-syntax-pink: var(--color-pink);
+  --color-syntax-comment: var(--color-subtext);
+
+  --color-background-app: var(--color-bg);
+  --color-background-app-weak: var(--color-base-gray-20);
+  --color-background-elevated: var(--color-base-gray-40);
+  --color-background-elevated-hover: var(--color-base-gray-50);
+  --color-background-grouped: var(--color-base-gray-20);
+  --color-background-grouped-weak: var(--color-base-gray-10);
+  --color-background-object: var(--color-base-gray-40);
+
+  --color-background-button-primary: var(--color-primary);
+  --color-background-button-primary-active: var(--color-pink);
+  --color-background-button-primary-disabled: var(--color-base-gray-50);
+  --color-background-button-secondary: var(--color-base-gray-40);
+  --color-background-button-secondary-active: var(--color-base-gray-50);
+  --color-background-button-secondary-disabled: var(--color-base-gray-30);
+  --color-background-button-translucent: rgba(var(--color-base-white-rgb), 0.1);
+  --color-background-button-translucent-active: rgba(var(--color-base-white-rgb), 0.15);
+  --color-background-button-translucent-disabled: rgba(var(--color-base-white-rgb), 0.05);
+
+  --color-background-sidebar: rgba(var(--color-base-gray-20-rgb), 0.7);
+  --color-background-sidebar-opaque: var(--color-base-gray-20);
+  --color-background-sidebar-thread-focus: rgba(var(--color-base-white-rgb), 0.1);
+  --color-background-sidebar-thread-selected: var(--color-background-selected-primary);
+  --color-background-sidebar-thread-selected-unfocused: rgba(var(--color-base-white-rgb), 0.15);
+
+  --color-background-message-active: var(--color-base-gray-30);
+  --color-background-message-bubble-received: var(--color-base-gray-40);
+  --color-background-message-bubble-sent: var(--color-primary);
+  --color-background-message-bubble-linked: var(--color-base-gray-30);
+
+  --color-background-selected-primary: var(--color-primary);
+  --color-background-selected-secondary: rgba(var(--color-base-white-rgb), 0.1);
+
+  --color-background-input: var(--color-base-gray-30);
+  --color-background-kbd: rgba(var(--color-base-white-rgb), 0.15);
+
+  --color-background-header-right: rgba(var(--color-base-gray-30-rgb), 0.9);
+  --color-background-header-right-opaque: var(--color-base-gray-30);
+  --color-background-menu: rgba(var(--color-base-gray-40-rgb), 0.95);
+  --color-background-menu-opaque: var(--color-base-gray-40);
+  --color-background-menu-option-hover: var(--color-cyan);
+
+  --color-border-neutrals: var(--color-base-gray-50);
+  --color-border-neutrals-strong: var(--color-base-gray-60);
+  --color-border-neutrals-weak: var(--color-base-gray-30);
+  --color-border-input: var(--color-base-gray-50);
+  --color-border-input-active: var(--color-primary);
+  --color-border-translucent: rgba(var(--color-base-white-rgb), 0.1);
+  --color-border-translucent-strong: rgba(var(--color-base-white-rgb), 0.15);
+  --color-border-translucent-strongest: rgba(var(--color-base-white-rgb), 0.5);
+  --color-border-translucent-weak: rgba(var(--color-base-white-rgb), 0.05);
+
+  --color-text-neutrals: var(--color-text);
+  --color-text-neutrals-subtle: var(--color-base-gray-110);
+  --color-text-neutrals-weak: var(--color-base-gray-90);
+  --color-text-on-accent: var(--color-crust);
+  --color-text-on-accent-weak: rgba(var(--color-crust-rgb), 0.8);
+  --color-text-translucent: rgba(var(--color-text-rgb), 0.9);
+  --color-text-translucent-subtle: rgba(var(--color-text-rgb), 0.6);
+  --color-text-translucent-weak: rgba(var(--color-text-rgb), 0.75);
+
+  --color-icon-neutrals: var(--color-text);
+  --color-icon-neutrals-strong: var(--color-text);
+  --color-icon-neutrals-subtle: var(--color-subtext);
+  --color-icon-neutrals-weak: var(--color-base-gray-70);
+  --color-icon-on-accent: rgba(var(--color-crust-rgb), 0.85);
+  --color-icon-on-accent-strong: rgba(var(--color-crust-rgb), 0.95);
+  --color-icon-on-accent-weak: rgba(var(--color-crust-rgb), 0.6);
+  --color-icon-translucent: rgba(var(--color-text-rgb), 0.6);
+  --color-icon-translucent-strong: rgba(var(--color-text-rgb), 0.9);
+  --color-icon-translucent-subtle: rgba(var(--color-text-rgb), 0.3);
+  --color-icon-translucent-weak: rgba(var(--color-text-rgb), 0.4);
+
+  --color-background-scrollbar: rgba(var(--color-base-white-rgb), 0.3);
+  --color-background-scrollbar-hover: rgba(var(--color-base-white-rgb), 0.5);
+
+  --color-background-tag: rgba(var(--color-base-white-rgb), 0.1);
+  --color-overlay-modal: rgba(var(--color-black-rgb), 0.4);
+  --color-transparent: rgba(0, 0, 0, 0);
+
+  --left-pane-bg: transparent;
+  --right-pane-bg: rgba(var(--color-bg-rgb), 1);
+
+  --compose-message-accent: var(--color-subtext);
+  --audio-bar-button: var(--color-subtext);
+  --audio-bar-preview-progress: var(--color-white);
+  --audio-bar-bg: var(--color-surface);
+  --audio-bar-border: var(--color-border);
+
+  --key-border: var(--color-border);
+  --key-bg: var(--color-surface);
+  --color-key-bottom-bg: var(--color-base-gray-20);
+  --prefs-well: var(--color-base-gray-20);
+
+  --ansi-black: var(--color-base-gray-40);
+  --ansi-red: var(--color-red);
+  --ansi-green: var(--color-green);
+  --ansi-yellow: var(--color-yellow);
+  --ansi-blue: var(--color-blue);
+  --ansi-magenta: var(--color-pink);
+  --ansi-cyan: var(--color-teal);
+  --ansi-white: var(--color-text);
+  --ansi-bright-black: var(--color-base-gray-60);
+  --ansi-bright-red: var(--color-red);
+  --ansi-bright-green: var(--color-green);
+  --ansi-bright-yellow: var(--color-yellow);
+  --ansi-bright-blue: var(--color-blue);
+  --ansi-bright-magenta: var(--color-purple);
+  --ansi-bright-cyan: var(--color-cyan);
+  --ansi-bright-white: var(--color-white);
+}
+
+:root {
+  --functional-red: var(--color-red);
+  --functional-orange: var(--color-orange);
+  --functional-green: var(--color-green);
+  --functional-cyan: var(--color-cyan);
+  --functional-purple: var(--color-purple);
+
+  --focus-ring: var(--functional-purple);
+  --link-color: var(--functional-cyan);
+  --danger-bg: var(--functional-red);
+  --success-bg: var(--functional-green);
+  --warning-bg: var(--functional-orange);
+}
+
+.no-transparency,
+.reduce-transparency {
+  --left-pane-bg: var(--color-background-sidebar-opaque);
+  --color-background-header-right: var(--color-background-header-right-opaque);
+  --color-background-menu: var(--color-background-menu-opaque);
+}
