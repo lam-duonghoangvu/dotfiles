@@ -1,9 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Go to Explorer" })
-
-vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear highight" })
+vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear highlight" })
 
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
@@ -15,6 +13,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without copy deleted text" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without copy deleted text" })
+vim.keymap.set({ "n", "v" }, "<leader>c", [["_c]], { desc = "Change without copy deleted text" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
