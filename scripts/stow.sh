@@ -2,7 +2,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/variables/colors.sh"
 
-STOW_PACKAGES="bash bat brew btop fastfetch ghostty nvim starship tmux zsh"
+STOW_PACKAGES="bash bat brew btop fastfetch ghostty nvim sketchybar starship tmux zsh"
 
 echo -e "${CYAN}STOWING CONFIGS${RESET}"
 for pkg in $STOW_PACKAGES; do
