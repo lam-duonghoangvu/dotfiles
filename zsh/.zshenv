@@ -13,7 +13,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # Personal binaries scripts
 typeset -U PATH
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/scripts:$PATH"
 
 # Sessions directory
 export SHELL_SESSION_DIR="$XDG_STATE_HOME/zsh/sessions"
