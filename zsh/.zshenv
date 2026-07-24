@@ -24,7 +24,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Brew
 [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export HOMEBREW_BREWFILE="$XDG_CONFIG_HOME/brew/Brewfile"
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
