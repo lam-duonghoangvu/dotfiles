@@ -1,5 +1,6 @@
-require("set")
-require("remap")
+require("core.keymaps")
+require("core.options")
+require("core.diagnostics")
 require("config.lazy")
 
 vim.api.nvim_create_autocmd("VimEnter", {

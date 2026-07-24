@@ -49,5 +49,3 @@ vim.opt.selection = "inclusive" -- include last char in selection
 vim.opt.mouse = "a" -- enable mouse support
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard
 vim.opt.modifiable = true -- allow buffer modifications
-
-vim.g.netrw_banner = 0 -- hide netrw banner

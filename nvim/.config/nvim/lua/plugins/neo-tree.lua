@@ -23,9 +23,9 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>nf", ":Neotree filesystem float<CR>", { silent = true })
-			vim.keymap.set("n", "<leader>nb", ":Neotree buffers float<CR>", { silent = true })
-			vim.keymap.set("n", "<leader>ng", ":Neotree git_status float<CR>", { silent = true })
+			vim.keymap.set("n", "<leader>nf", ":Neotree toggle filesystem float<CR>", { silent = true })
+			vim.keymap.set("n", "<leader>nb", ":Neotree toggle buffers float<CR>", { silent = true })
+			vim.keymap.set("n", "<leader>ng", ":Neotree toggle git_status float<CR>", { silent = true })
 		end,
 	},
 }
