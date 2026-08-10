@@ -67,19 +67,15 @@ if command -v bat &>/dev/null; then
 fi
 
 # zsh-syntax-highlighting, zsh-autocomplete, zsh-autosuggestions
-if command -v brew &>/dev/null; then
-  _brew=$(brew --prefix)
-  source "$_brew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-  source "$_brew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-  source "$_brew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-  unset _brew
+source "$HOME/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-  # Navigation in menu selection
-  bindkey -M menuselect "^[[D" .backward-char "^[OD" .backward-char
-  bindkey -M menuselect "^[[C" .forward-char  "^[OC" .forward-char
-  bindkey -M menuselect "^H" .backward-char
-  bindkey -M menuselect "^L" .forward-char
-  bindkey -M menuselect "^M" .accept-line
-  bindkey "^Y" autosuggest-accept
-fi
+# Navigation in menu selection
+bindkey -M menuselect "^[[D" .backward-char "^[OD" .backward-char
+bindkey -M menuselect "^[[C" .forward-char  "^[OC" .forward-char
+bindkey -M menuselect "^H" .backward-char
+bindkey -M menuselect "^L" .forward-char
+bindkey -M menuselect "^M" .accept-line
+bindkey "^Y" autosuggest-accept
 
