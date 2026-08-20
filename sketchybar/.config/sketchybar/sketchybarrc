@@ -8,38 +8,39 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 HELPER_DIR="$HOME/.config/sketchybar/helper"
 
 FONT="JetBrainsMono Nerd Font"
-SPACE_CLICK_SCRIPT="aerospace workspace \$SID 2>/dev/null"
+FONT_WEIGHT="Regular"
+FONT_SIZE=14
 
-PADDINGS=3 # All paddings use this value (icon, label, background)
-
-POPUP_BORDER_WIDTH=2
-POPUP_CORNER_RADIUS=11
-
+HEIGHT=24
+PADDINGS=3
+BORDER_WIDTH=1
+CORNER_RADIUS=20
 SHADOW=off
 
-# Setting up the general bar appearance and default values
-sketchybar --bar height=24 \
+SPACE_CLICK_SCRIPT="aerospace workspace \$SID 2>/dev/null"
+
+sketchybar --bar height=$HEIGHT \
   color=$TRANSPARENT \
-  padding_right=5 \
-  padding_left=5 \
+  padding_right=$PADDINGS \
+  padding_left=$PADDINGS \
   y_offset=4 \
   margin=5 \
   \
   --default updates=when_shown \
-  icon.font="$FONT:Regular:14.0" \
+  icon.font="$FONT:$FONT_WEIGHT:$FONT_SIZE" \
   icon.color=$ICON_ACCENT_COLOR \
   icon.padding_left=$PADDINGS \
   icon.padding_right=$PADDINGS \
-  label.font="$FONT:Regular:14.0" \
+  label.font="$FONT:$FONT_WEIGHT:$FONT_SIZE" \
   label.color=$LABEL_COLOR \
   label.padding_left=$PADDINGS \
   label.padding_right=$PADDINGS \
   background.padding_right=$PADDINGS \
   background.padding_left=$PADDINGS \
-  popup.background.border_width=2 \
-  popup.background.corner_radius=11 \
-  popup.background.border_color=$POPUP_BORDER_COLOR \
-  popup.background.color=$POPUP_BACKGROUND_COLOR \
+  popup.background.border_width=$BORDER_WIDTH \
+  popup.background.corner_radius=$CORNER_RADIUS \
+  popup.background.border_color=$BORDER_COLOR \
+  popup.background.color=$BACKGROUND_COLOR \
   popup.background.shadow.drawing=$SHADOW
 
 # Left
@@ -52,27 +53,27 @@ source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/keyboard.sh"
 
 sketchybar --add bracket left_island '/space.*/' \
-  --set left_island background.color=$BAR_COLOR \
-  background.border_width=1 \
-  background.corner_radius=20 \
-  background.border_color=$POPUP_BORDER_COLOR \
-  background.height=24 \
+  --set left_island background.color=$BACKGROUND_COLOR \
+  background.border_width=$BORDER_WIDTH \
+  background.corner_radius=$CORNER_RADIUS \
+  background.border_color=$BORDER_COLOR \
+  background.height=$HEIGHT \
   background.drawing=on
 
 sketchybar --add bracket media_island 'media' \
-  --set media_island background.color=$BAR_COLOR \
-  background.border_width=1 \
-  background.corner_radius=20 \
-  background.border_color=$POPUP_BORDER_COLOR \
-  background.height=24 \
+  --set media_island background.color=$BACKGROUND_COLOR \
+  background.border_width=$BORDER_WIDTH \
+  background.corner_radius=$CORNER_RADIUS \
+  background.border_color=$BORDER_COLOR \
+  background.height=$HEIGHT \
   background.drawing=on
 
 sketchybar --add bracket right_island 'keyboard' 'battery' 'calendar' \
-  --set right_island background.color=$BAR_COLOR \
-  background.border_width=1 \
-  background.corner_radius=20 \
-  background.border_color=$POPUP_BORDER_COLOR \
-  background.height=24 \
+  --set right_island background.color=$BACKGROUND_COLOR \
+  background.border_width=$BORDER_WIDTH \
+  background.corner_radius=$CORNER_RADIUS \
+  background.border_color=$BORDER_COLOR \
+  background.height=$HEIGHT \
   background.drawing=on
 
 sketchybar --update
