@@ -21,6 +21,11 @@ bindkey -e
 bindkey "^H" backward-char
 bindkey "^L" forward-char
 
+# mise
+if command -v mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
 # neovim
 if command -v nvim &>/dev/null; then
   alias nv="nvim"
