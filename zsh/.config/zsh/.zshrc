@@ -26,6 +26,9 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
 fi
 
+# misecompsync
+fpath=(~/.local/share/mise-completions/zsh $fpath)
+
 # neovim
 if command -v nvim &>/dev/null; then
   alias nv="nvim"
