@@ -1,7 +1,7 @@
 @import url("../config/color-palette/catppuccin/theme.css");
 
 :root {
-  --theme-font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  --theme-font-family: "JetBrains Mono", monospace;
 
   --zen-colors-bg: var(--color-bg) !important;
   --zen-colors-secondary: var(--mantle) !important;
