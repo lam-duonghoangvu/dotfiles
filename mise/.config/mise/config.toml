@@ -1,0 +1,57 @@
+[settings]
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"
+
+[tools]
+antigravity-cli = "latest"
+awscli = { version = "latest", symlink_bins = "true" }
+bat = "latest"
+eza = "latest"
+fastfetch = "latest"
+fd = "latest"
+fzf = "latest"
+"github:BetterDiscord/cli" = "latest"
+"github:alltuner/mise-completions-sync" = "latest"
+go = "latest"
+hugo = "latest"
+infisical = { version = "latest", asset_pattern = "cli_{{ version }}_{{ os(macos='darwin') }}_{{ arch(x64='amd64') }}.tar.gz" }
+jq = "latest"
+lazygit = "latest"
+lazyssh = "latest"
+mas = "latest"
+neovim = "latest"
+node = "latest"
+"pipx:huggingface-hub" = "latest"
+"pipx:kaggle" = "latest"
+ripgrep = "latest"
+rust = "latest"
+sqlite = "latest"
+starship = "latest"
+tlrc = "latest"
+tmux = "latest"
+tree-sitter = "latest"
+uv = "latest"
+zoxide = "latest"
+
+[dotfiles]
+"~/.config/aerospace" = "~/.dotfiles/aerospace/.config/aerospace"
+"~/.config/bat" = "~/.dotfiles/bat/.config/bat"
+"~/.config/btop" = "~/.dotfiles/btop/.config/btop"
+"~/.config/borders" = "~/.dotfiles/borders/.config/borders"
+"~/.config/fastfetch" = "~/.dotfiles/fastfetch/.config/fastfetch"
+"~/.config/ghostty" = "~/.dotfiles/ghostty/.config/ghostty"
+"~/.config/mise" = "~/.dotfiles/mise/.config/mise"
+"~/.config/nvim" = "~/.dotfiles/nvim/.config/nvim"
+"~/.config/sketchybar" = "~/.dotfiles/sketchybar/.config/sketchybar"
+"~/.config/starship.toml" = "~/.dotfiles/starship/.config/starship.toml"
+"~/.config/tmux" = "~/.dotfiles/tmux/.config/tmux"
+"~/.config/zsh" = "~/.dotfiles/zsh/.config/zsh"
+"~/.zshenv" = "~/.dotfiles/zsh/.zshenv"
+
+[bootstrap.macos.dock]
+autohide = true
+autohide-time-modifier = 0
+autohide-delay = 0
+
+[bootstrap.hooks]
+post-defaults = "killall Dock"
