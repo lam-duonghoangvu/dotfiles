@@ -41,5 +41,17 @@ zoxide = "latest"
 "~/.config/zsh" = "~/.dotfiles/config/zsh"
 "~/.zshenv" = "~/.dotfiles/zsh/.zshenv"
 
+[bootstrap.hooks]
+post-tools = """
+TPM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/plugins/tpm"
+
+[ ! -d "$TPM_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+
+"$TPM_DIR/bin/install_plugins"
+"""
+post-dotfiles = """
+mise run bootstrap-personal
+"""
+
 [shell_alias]
 
