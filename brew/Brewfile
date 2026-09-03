@@ -1,0 +1,15 @@
+tap "felixkratz/formulae", trusted: true
+tap "nikitabobko/tap", trusted: true
+
+brew "btop"
+brew "mole"
+
+brew "felixkratz/formulae/borders", trusted: true
+brew "felixkratz/formulae/sketchybar", trusted: true
+cask "nikitabobko/tap/aerospace", trusted: true
+
+cask "ghostty"
+
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+
