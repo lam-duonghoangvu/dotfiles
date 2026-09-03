@@ -1,0 +1,4 @@
+[tools]
+cowsay = "latest"
+"github:BetterDiscord/cli" = "latest"
+"github:talwat/pokeget-rs" = "latest"

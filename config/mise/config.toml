@@ -16,7 +16,6 @@ infisical = { version = "latest", asset_pattern = "cli_{{ version }}_{{ os(macos
 jq = "latest"
 lazygit = "latest"
 lazyssh = "latest"
-mas = "latest"
 neovim = "latest"
 node = "latest"
 "pipx:huggingface-hub" = "latest"
@@ -31,14 +30,16 @@ uv = "latest"
 zoxide = "latest"
 
 [dotfiles]
-"~/.config/bat" = "~/.dotfiles/bat/.config/bat"
-"~/.config/btop" = "~/.dotfiles/btop/.config/btop"
-"~/.config/fastfetch" = "~/.dotfiles/fastfetch/.config/fastfetch"
-"~/.config/ghostty" = "~/.dotfiles/ghostty/.config/ghostty"
-"~/.config/mise" = "~/.dotfiles/mise/.config/mise"
-"~/.config/nvim" = "~/.dotfiles/nvim/.config/nvim"
-"~/.config/starship.toml" = "~/.dotfiles/starship/.config/starship.toml"
-"~/.config/tmux" = "~/.dotfiles/tmux/.config/tmux"
-"~/.config/zsh" = "~/.dotfiles/zsh/.config/zsh"
+"~/.config/bat" = "~/.dotfiles/config/bat"
+"~/.config/btop" = "~/.dotfiles/config/btop"
+"~/.config/fastfetch" = "~/.dotfiles/config/fastfetch"
+"~/.config/ghostty" = "~/.dotfiles/config/ghostty"
+"~/.config/mise" = "~/.dotfiles/config/mise"
+"~/.config/nvim" = "~/.dotfiles/config/nvim"
+"~/.config/starship.toml" = "~/.dotfiles/config/starship/starship.toml"
+"~/.config/tmux" = "~/.dotfiles/config/tmux"
+"~/.config/zsh" = "~/.dotfiles/config/zsh"
 "~/.zshenv" = "~/.dotfiles/zsh/.zshenv"
+
+[shell_alias]
 

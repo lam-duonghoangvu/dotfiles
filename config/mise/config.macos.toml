@@ -1,0 +1,27 @@
+[tools]
+mas = "latest"
+
+[dotfiles]
+"~/.config/aerospace" = "~/.dotfiles/config/aerospace"
+"~/.config/borders" = "~/.dotfiles/config/borders"
+"~/.config/sketchybar" = "~/.dotfiles/config/sketchybar"
+
+[bootstrap.brew]
+adopt = true
+
+[bootstrap.packages]
+"brew:btop" = "latest"
+"brew:mole" = "latest"
+
+[bootstrap.macos.dock]
+autohide = true
+
+[bootstrap.macos.defaults]
+"com.apple.dock" = {
+  autohide-time-modifier = 0,
+  autohide-delay = 0
+}
+
+[bootstrap.hooks]
+post-defaults = "killall Dock"
+
