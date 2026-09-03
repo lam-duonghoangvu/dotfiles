@@ -70,10 +70,6 @@ if command -v eza &>/dev/null; then
 fi
 
 # bat (cat replacement)
-if command -v batcat &>/dev/null; then 
-  alias cat="batcat --color=always -n --line-range :500"
-fi
-
 if command -v bat &>/dev/null; then
   alias cat="bat --color=always -n --line-range :500"
 fi
