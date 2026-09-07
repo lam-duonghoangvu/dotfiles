@@ -1,13 +1,7 @@
-[tools]
-cowsay = "latest"
-"github:BetterDiscord/cli" = "latest"
-"github:talwat/pokeget-rs" = "latest"
-
 [tasks.bootstrap-personal]
 description = "Run bootstrap personal tasks"
 run = """
 mise run link-beepertexts
-mise run link-betterdiscord
 mise run link-thunderbird
 mise run link-zen
 """
@@ -17,13 +11,6 @@ description = "Symlink BeeperTexts custom.css to dotfiles"
 run = """
 mkdir -p "$BEEPERTEXTS_CONFIG_DIR"
 ln -sf "$HOME/.dotfiles/config/beepertexts/custom.css" "$BEEPERTEXTS_CONFIG_DIR/custom.css"
-"""
-
-[tasks.link-betterdiscord]
-description = "Symlink BetterDiscord custom.css to dotfiles"
-run = """
-mkdir -p "$BETTERDISCORD_CONFIG_DIR/data/stable"
-ln -sf "$HOME/.dotfiles/config/betterdiscord/custom.css" "$BETTERDISCORD_CONFIG_DIR/data/stable/custom.css"
 """
 
 [tasks.link-thunderbird]
