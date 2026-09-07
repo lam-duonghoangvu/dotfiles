@@ -1,9 +1,9 @@
 return {
 	"stevearc/conform.nvim",
-	dependencies = { "williamboman/mason.nvim" },
-	opts = {},
 	config = function()
-		require("conform").setup({
+		local conform = require("conform")
+
+		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "ruff_format", "ruff_organize_imports" },
@@ -20,27 +20,15 @@ return {
 			},
 		})
 
-		-- Auto installing formatters
-		local mason_registry = require("mason-registry")
-		local formatters = {
-			"stylua",
-			"ruff",
-			"goimports",
-			"prettierd",
-			"prettier",
-		}
-
-		for _, tool in ipairs(formatters) do
-			if mason_registry.has_package(tool) then
-				local mason_package = mason_registry.get_package(tool)
-				if not mason_package:is_installed() then
-					mason_package:install()
-				end
-			end
-		end
-
 		vim.keymap.set("n", "<leader>f", function()
 			require("conform").format({ bufnr = 0 })
 		end)
+		vim.keymap.set({ "n", "v" }, "<leader>f", function()
+			conform.format({
+				lsp_format = "fallback",
+				async = false,
+				timeout_ms = 500,
+			})
+		end, { desc = "Format file or range" })
 	end,
 }

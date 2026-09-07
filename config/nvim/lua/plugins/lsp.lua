@@ -1,12 +1,11 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 		"j-hui/fidget.nvim",
 	},
 	config = function()
+		require("fidget").setup({})
 		local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = vim.tbl_deep_extend(
 			"force",
@@ -15,41 +14,23 @@ return {
 			cmp_lsp.default_capabilities()
 		)
 
-		require("fidget").setup({})
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"lua_ls",
-				"pyright",
-				"ruff",
-				"gopls",
-				"vtsls",
-			},
-			handlers = {
-				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities,
-					})
-				end,
+		vim.lsp.config("*", {
+			capabilities = capabilities,
+		})
 
-				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
-
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								runtime = {
-									version = "LuaJIT",
-								},
-								diagnostics = {
-									globals = { "vim" },
-								},
-							},
-						},
-					})
-				end,
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT",
+					},
+					diagnostics = {
+						globals = { "vim" },
+					},
+				},
 			},
 		})
+
+		vim.lsp.enable({ "ruff", "gopls", "lua_ls" })
 	end,
 }

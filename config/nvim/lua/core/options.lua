@@ -1,3 +1,4 @@
+vim.opt.cmdheight = 0 -- hide command row if not use
 vim.opt.number = true -- line number
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.cursorline = true -- highlight current line
