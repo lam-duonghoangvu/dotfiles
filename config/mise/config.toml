@@ -47,6 +47,7 @@ zoxide = "latest"
 "~/.config/nvim" = "~/.dotfiles/config/nvim"
 "~/.config/starship.toml" = "~/.dotfiles/config/starship/starship.toml"
 "~/.config/tmux" = "~/.dotfiles/config/tmux"
+"~/.config/vicinae" = "~/.dotfiles/config/vicinae"
 "~/.config/zsh" = "~/.dotfiles/config/zsh"
 "~/.zshenv" = "~/.dotfiles/zsh/.zshenv"
 

@@ -1,0 +1,37 @@
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "close_on_focus_loss": true,
+   "escape_key_behavior": "",
+   "global_shortcuts": {
+      "toggle": "control+SPACE"
+   },
+   "font": {
+      "normal": {
+         "family": "JetBrains Mono",
+         "size": 16
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "catppuccin-mocha"
+      }
+   },
+   "telemetry": {
+      "system_info": false
+   },
+   "launcher_window": {
+      "opacity": 1,
+      "compact_mode": {
+         "enabled": true
+      },
+      "material": "none"
+   },
+   "providers": {
+      "manage-shortcuts": {
+         "enabled": true
+      },
+      "raycast-compat": {
+         "enabled": false
+      }
+   }
+}
