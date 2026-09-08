@@ -1,6 +1,7 @@
 [settings]
 dotfiles.root = "~/.dotfiles"
 dotfiles.default_mode = "symlink"
+auto_update = true
 
 [tools]
 antigravity-cli = "latest"
