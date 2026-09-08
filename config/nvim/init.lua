@@ -1,7 +1,8 @@
+require("core.commands")
+require("core.diagnostics")
 require("core.keymaps")
 require("core.options")
-require("core.diagnostics")
-require("config.lazy")
+require("core.pack")
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()

@@ -30,6 +30,6 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Actions
-vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear highlight" })
+vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { desc = "Clear highlight" })
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
