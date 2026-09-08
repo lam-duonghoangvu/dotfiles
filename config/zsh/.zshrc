@@ -17,10 +17,6 @@ setopt NUMERIC_GLOB_SORT
 # Use emacs keymaps to enable Ctrl-N and Ctrl-P to work with zsh-autocomplete
 bindkey -e
 
-# Remaps
-bindkey "^H" backward-char
-bindkey "^L" forward-char
-
 # mise
 if command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
@@ -82,8 +78,8 @@ source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # Navigation in menu selection
 bindkey -M menuselect "^[[D" .backward-char "^[OD" .backward-char
 bindkey -M menuselect "^[[C" .forward-char  "^[OC" .forward-char
-bindkey -M menuselect "^H" .backward-char
-bindkey -M menuselect "^L" .forward-char
+bindkey -M menuselect "^B" .backward-char
+bindkey -M menuselect "^F" .forward-char
 bindkey -M menuselect "^M" .accept-line
 bindkey "^Y" autosuggest-accept
 
