@@ -19,16 +19,5 @@ return {
 				lsp_format = "fallback",
 			},
 		})
-
-		vim.keymap.set("n", "<leader>f", function()
-			require("conform").format({ bufnr = 0 })
-		end)
-		vim.keymap.set({ "n", "v" }, "<leader>f", function()
-			conform.format({
-				lsp_format = "fallback",
-				async = false,
-				timeout_ms = 500,
-			})
-		end, { desc = "Format file or range" })
 	end,
 }
