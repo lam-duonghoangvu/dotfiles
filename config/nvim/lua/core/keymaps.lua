@@ -32,4 +32,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Actions
 vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { desc = "Clear highlight" })
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
-vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "Hover documentation with rounded corner border" })

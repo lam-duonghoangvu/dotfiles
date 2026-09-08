@@ -15,7 +15,7 @@ local parsers = {
 }
 
 local group = vim.api.nvim_create_augroup("Treesitter", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+vim.api.nvim_create_autocmd("FileType", {
 	group = group,
 	callback = function()
 		if vim.bo.buftype ~= "" then
