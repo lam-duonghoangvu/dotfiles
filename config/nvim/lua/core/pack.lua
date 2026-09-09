@@ -2,18 +2,16 @@ vim.pack.add({
 	-- Colorscheme
 	{ src = "https://github.com/catppuccin/nvim", version = vim.version.range("1") },
 
-	-- Neo-tree
-	{ src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = vim.version.range("3") },
-	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-	{ src = "https://github.com/MunifTanjim/nui.nvim" },
+	-- Files
+	{ src = "https://github.com/echasnovski/mini.files" },
 
 	-- Fuzzy finder
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 
-	-- File type icons for Neo-tree and Fuzzy finder
+	-- File icons
 	{ src = "https://github.com/echasnovski/mini.icons" },
 
-	-- Treesitter (uses the `main` branch API)
+	-- Treesitter
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 
 	-- LSP
@@ -32,16 +30,21 @@ vim.pack.add({
 
 	-- Gitsigns
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+
+	-- Harpoon
+	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 })
 
 require("plugins.catppuccin")
 require("plugins.icons")
-require("plugins.neo-tree")
+require("plugins.files")
 require("plugins.fzf")
 require("plugins.treesitter")
 require("plugins.lsp")
 require("plugins.lazydev")
 require("plugins.blink")
 require("plugins.autoformat")
-require("plugins.mini-pairs")
+require("plugins.pairs")
 require("plugins.gitsigns")
+require("plugins.harpoon")

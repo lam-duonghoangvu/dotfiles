@@ -22,6 +22,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
+-- Exit Terminal Mode
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
 -- Better Yank, Paste, Delete and Change
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without copy deleted text" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without copy deleted text" })

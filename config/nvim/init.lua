@@ -7,7 +7,7 @@ require("core.pack")
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		if vim.fn.argc() == 0 then
-			vim.cmd("Neotree filesystem float")
+			require("mini.files").open(vim.fn.getcwd())
 		end
 	end,
 })
