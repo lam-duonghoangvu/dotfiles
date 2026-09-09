@@ -1,2 +1,38 @@
 @import url("content.css");
 
+*:not(
+  [class*="icon"],
+  [class*="fa-"],
+  [class*="material-icons"],
+  [class*="codicon"],
+  [class*="octicon"],
+  [data-icon],
+  i,
+  svg
+) {
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+@-moz-document domain("office.com"),
+               domain("sharepoint.com"),
+               domain("officeapps.live.com"),
+               domain("onedrive.live.com"),
+               domain("microsoft365.com"),
+               domain("live.com"),
+               domain("powerpoint.office.com") {
+   *:not(
+    [class*="ms-Icon"],
+    [class*="fabric-icon"],
+    [class*="icon"],
+    i,
+    svg
+  ) {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif !important;
+  }
+
+  [contenteditable="true"],
+  [role="textbox"],
+  svg text {
+    font-family: inherit !important;
+  }
+}

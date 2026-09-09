@@ -5,9 +5,10 @@ user_pref("layout.css.color-mix.enabled", true);
 user_pref("layout.css.backdrop-filter.enabled", true);
 
 // Website Font
-user_pref("font.name.monospace.x-western", "JetBrains Mono");
-user_pref("font.name.san-serif.x-western", "JetBrains Mono");
-user_pref("font.name.serif.x-western", "JetBrains Mono");
+// user_pref("font.name.monospace.x-western", "JetBrains Mono");
+// user_pref("font.name.san-serif.x-western", "JetBrains Mono");
+// user_pref("font.name.serif.x-western", "JetBrains Mono");
+user_pref("browser.display.use_document_fonts", 1);
 
 // Browser
 user_pref("browser.warnOnQuitShortcut", false);
