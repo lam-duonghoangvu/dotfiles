@@ -34,19 +34,19 @@ end, { desc = "File explorer" })
 -- Git status colouring
 local git_ns = vim.api.nvim_create_namespace("mini_files_git")
 local git_marks = {
-	[" M"] = { "•", "Changed" },
-	["M "] = { "✓", "Changed" },
-	["MM"] = { "≠", "Changed" },
-	["A "] = { "+", "Added" },
-	["AM"] = { "≠", "Added" },
-	["AA"] = { "≠", "Added" },
-	["C "] = { "+", "Added" },
-	["D "] = { "-", "Removed" },
-	[" D"] = { "-", "Removed" },
-	["R "] = { "→", "Changed" },
-	["U "] = { "‖", "Removed" },
-	["UU"] = { "‖", "Removed" },
-	["??"] = { "?", "Added" },
+	[" M"] = { " M", "Changed" },
+	["M "] = { "M ", "Changed" },
+	["MM"] = { "MM", "Changed" },
+	["A "] = { "A ", "Added" },
+	["AM"] = { "AM", "Added" },
+	["AA"] = { "AA", "Removed" },
+	["C "] = { "C ", "Added" },
+	["D "] = { "D ", "Removed" },
+	[" D"] = { " D", "Removed" },
+	["R "] = { "R ", "Changed" },
+	["U "] = { "U ", "Removed" },
+	["UU"] = { "UU", "Removed" },
+	["??"] = { "??", "Added" },
 	["!!"] = { "", "Comment" },
 }
 
