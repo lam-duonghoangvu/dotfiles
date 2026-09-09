@@ -1,8 +1,6 @@
 local blink = require("blink.cmp")
 
 blink.setup({
-	snippets = { preset = "luasnip" },
-
 	keymap = {
 		preset = "default",
 		["<C-p>"] = { "select_prev", "fallback" },
@@ -33,7 +31,7 @@ blink.setup({
 	},
 
 	sources = {
-		default = { "lsp", "snippets", "buffer" },
+		default = { "lsp", "buffer" },
 	},
 
 	cmdline = {

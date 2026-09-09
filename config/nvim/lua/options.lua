@@ -16,15 +16,8 @@ vim.opt.smartindent = true -- smart auto-indent
 vim.opt.ignorecase = true -- case insensitive search
 vim.opt.smartcase = true -- case sensitive if uppercase in string
 
-vim.opt.statusline = " %f %m%r%h%w%=%l/%L, %c-%v " -- left: path+flags, right: line/total, col-vcol
-local function bold_statusline()
-	for _, group in ipairs({ "StatusLine", "StatusLineNC" }) do
-		local hl = vim.api.nvim_get_hl(0, { name = group, link = false })
-		vim.api.nvim_set_hl(0, group, { fg = hl.fg, bg = hl.bg, bold = true })
-	end
-end
-bold_statusline()
-vim.api.nvim_create_autocmd("ColorScheme", { callback = bold_statusline })
+vim.api.nvim_set_hl(0, "StatusLineBold", { bold = true }) -- enables bold style
+vim.opt.statusline = "%#StatusLineBold# %f %m%r%h%w%=%l/%L, %c-%v %*" -- left: path+flags, right: line/total, col-vcol
 
 vim.opt.signcolumn = "yes" -- always show a sign column
 vim.opt.showmatch = true -- highlights matching brackets

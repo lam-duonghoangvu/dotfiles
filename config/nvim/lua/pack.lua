@@ -24,9 +24,8 @@ vim.pack.add({
 	-- LSP
 	{ src = "https://github.com/folke/lazydev.nvim" },
 
-	-- Completion & Snippets
+	-- Completion
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1") },
-	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 
 	-- Formatting
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -34,20 +33,6 @@ vim.pack.add({
 	-- Editing
 	{ src = "https://github.com/nvim-mini/mini.pairs" },
 
-	-- Gitsigns
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	-- Git diff
+	{ src = "https://github.com/nvim-mini/mini.diff" },
 })
-
-require("plugins.catppuccin")
-require("plugins.icons")
-require("plugins.files")
-require("plugins.harpoon")
-require("plugins.fzf")
-require("plugins.notify")
-require("plugins.treesitter")
-require("plugins.lsp")
-require("plugins.lazydev")
-require("plugins.blink")
-require("plugins.autoformat")
-require("plugins.pairs")
-require("plugins.gitsigns")
