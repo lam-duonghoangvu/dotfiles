@@ -1,4 +1,5 @@
 vim.opt.cmdheight = 0 -- hide command row if not use
+vim.opt.report = 9999 -- never print "N lines" messages (would force hit-enter with cmdheight=0)
 vim.opt.number = true -- line number
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.cursorline = true -- highlight current line

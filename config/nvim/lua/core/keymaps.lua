@@ -19,8 +19,8 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Make Ctrl-C behave the same as E
 -- Movements in Visual Mode
 vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move selection down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move selection up" })
 
 -- Exit Terminal Mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
