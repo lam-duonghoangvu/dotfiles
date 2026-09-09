@@ -32,6 +32,20 @@ vim.keymap.set({ "n", "v" }, "<leader>c", [["_c]], { desc = "Change without copy
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+vim.keymap.set("n", "yd", function()
+	local diags = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+	if vim.tbl_isempty(diags) then
+		return vim.notify("No diagnostic on this line", vim.log.levels.WARN)
+	end
+	local msgs = vim.tbl_map(function(d)
+		return d.message
+	end, diags)
+	local text = table.concat(msgs, "\n")
+	vim.fn.setreg('"', text)
+	vim.fn.setreg("+", text)
+	vim.notify("Yanked diagnostic: " .. text)
+end, { desc = "Yank line diagnostic(s)" })
+
 -- Actions
 vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { desc = "Clear highlight" })
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
