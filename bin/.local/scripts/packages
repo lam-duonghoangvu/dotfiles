@@ -1,0 +1,79 @@
+packages() {
+  local found=0
+
+  # Homebrew (Formulae & Casks)
+  if command -v brew >/dev/null 2>&1; then
+    echo -e "\033[1;34m=== Homebrew (Leaves & Casks) ===\033[0m"
+    brew leaves
+    brew list --cask 2>/dev/null
+    found=1
+  fi
+
+  # Mise
+  if command -v mise >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== Mise (Installed Tools) ===\033[0m"
+    mise list
+    found=1
+  fi
+
+  # uv (Global Python CLI tools)
+  if command -v uv >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== uv Tools ===\033[0m"
+    uv tool list
+    found=1
+  fi
+
+  # pipx (Alternative global Python tools)
+  if command -v pipx >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== pipx ===\033[0m"
+    pipx list --short
+    found=1
+  fi
+
+  # Cargo (Global Rust binaries)
+  if command -v cargo >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== Cargo (Global Binaries) ===\033[0m"
+    cargo install --list | grep ':$' | sed 's/:$//'
+    found=1
+  fi
+
+  # npm (Global Node packages)
+  if command -v npm >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== npm (Global Packages) ===\033[0m"
+    npm list -g --depth=0 --compact 2>/dev/null
+    found=1
+  fi
+
+  # pnpm (Global packages)
+  if command -v pnpm >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== pnpm (Global Packages) ===\033[0m"
+    pnpm list -g --depth=0 2>/dev/null
+    found=1
+  fi
+
+  # Go (Global binaries)
+  if command -v go >/dev/null 2>&1 && [ -d "$(go env GOPATH)/bin" ]; then
+    echo -e "\n\033[1;34m=== Go Binaries ($GOPATH/bin) ===\033[0m"
+    ls -1 "$(go env GOPATH)/bin"
+    found=1
+  fi
+
+  # Flatpak (Linux)
+  if command -v flatpak >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== Flatpak (User Apps) ===\033[0m"
+    flatpak list --app --columns=name,application
+    found=1
+  fi
+
+  # VS Code (Extensions)
+  if command -v code >/dev/null 2>&1; then
+    echo -e "\n\033[1;34m=== VS Code Extensions ===\033[0m"
+    code --list-extensions
+    found=1
+  fi
+
+  if [ $found -eq 0 ]; then
+    echo "No supported package managers found in PATH."
+  fi
+}
+
