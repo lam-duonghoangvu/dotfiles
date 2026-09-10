@@ -16,6 +16,11 @@ setopt NUMERIC_GLOB_SORT
 # Use emacs keymaps to enable Ctrl-N and Ctrl-P to work with zsh-autocomplete
 bindkey -e
 
+# Better ls
+alias ls="ls -1F --color=always"
+alias la="ls -1FA --color=always"
+alias ll="ls -FAlh --color=always"
+
 # mise
 if command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
@@ -35,11 +40,6 @@ if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
-# fastfetch
-if command -v fastfetch &>/dev/null; then
-  alias ff="fastfetch"
-fi
-
 # zoxide (cd replacement)
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
@@ -49,19 +49,8 @@ fi
 if command -v fzf &>/dev/null; then
   eval "$(fzf --zsh)"
   export FZF_DEFAULT_COMMAND="fd --hidden --exclude .git"
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="fd --type d --hidden --exclude .git"
-
-  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && (eza --tree --color=always {} | head -200) || (bat --color=always --style=numbers --line-range :500 {} 2>/dev/null || cat {})'"
+  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && (ls -1FA --color=always) || (bat --color=always -n --line-range :500 {} 2>/dev/null || cat {})'"
   export FZF_CTRL_R_OPTS="--preview ''"
-fi
-
-# eza (ls replacement)
-if command -v eza &>/dev/null; then
-  alias ls="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time"
-  alias la="eza --color --icons --long --git --no-permissions --no-filesize --no-user --no-time --all"
-  alias ll="eza --color --icons --long --header --git --all"
-  alias tree="eza --tree --color --icons"
 fi
 
 # bat (cat replacement)
