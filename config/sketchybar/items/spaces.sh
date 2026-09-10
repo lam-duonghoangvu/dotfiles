@@ -5,7 +5,7 @@ for sid in $(aerospace list-workspaces --all); do
   sketchybar --add item "space.$sid" left \
     --subscribe "space.$sid" aerospace_workspace_change \
     --set "space.$sid" \
-    icon="$sid" \
+    icon="" \
     icon.color=$TEXT \
     icon.highlight_color=$ICON_ACCENT_COLOR \
     icon.padding_left=10 \

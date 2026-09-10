@@ -8,7 +8,7 @@ fi
 
 case "$LAYOUT" in
 *"ABC"*) LAYOUT="ABC" ;;
-*"Telex"*) LAYOUT="VN" ;;
+*"Telex"*) LAYOUT="VNI" ;;
 esac
 
 sketchybar --set "$NAME" label="$LAYOUT"
