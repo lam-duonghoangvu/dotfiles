@@ -1,0 +1,177 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# --- Candidate Discovery ---
+# Locate existing *.local.toml files in the current directory, .mise/, and user config
+candidates=()
+
+while IFS= read -r f; do
+  [[ -n "$f" ]] && candidates+=("$f")
+done < <(find . -maxdepth 2 -name "*local.toml" -not -path "*/.*/*" 2>/dev/null)
+
+if [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/mise/config.local.toml" ]]; then
+  candidates+=("${XDG_CONFIG_HOME:-$HOME/.config}/mise/config.local.toml")
+fi
+
+# Fallback default if none exist yet
+if [[ ${#candidates[@]} -gt 0 ]]; then
+  DEFAULT_FILE="${candidates[0]}"
+else
+  DEFAULT_FILE="config.local.toml"
+fi
+
+CONFIG_FILE="${MISE_LOCAL_CONFIG:-$DEFAULT_FILE}"
+
+usage() {
+  cat <<EOF
+Usage: mise_env <add|rm|list> [env_name] [config_file]
+
+Commands:
+  add <env>     Append environment to MISE_ENV
+  rm  <env>     Remove environment from MISE_ENV
+  list          List MISE_ENV and discovered *.local.toml files
+
+Discovered local files:
+$(if [[ ${#candidates[@]} -gt 0 ]]; then
+  for c in "${candidates[@]}"; do
+    if [[ "$c" == "$CONFIG_FILE" ]]; then
+      echo "  * $c (active target)"
+    else
+      echo "    $c"
+    fi
+  done
+else
+  echo "    None found (defaulting to '$DEFAULT_FILE')"
+fi)
+
+Exaples:
+  mise_env add aws
+  mise_env rm aws
+  mise_env list
+  mise_env add github .mise/config.local.toml
+EOF
+  exit 1
+}
+
+ACTION="${1:-}"
+case "$ACTION" in
+  add|rm)
+    if [[ $# -lt 2 ]]; then
+      echo "Error: '$ACTION' requires an environment name." >&2
+      usage
+    fi
+    TARGET_ENV="$2"
+    CONFIG_FILE="${3:-$CONFIG_FILE}"
+    ;;
+  list|ls)
+    CONFIG_FILE="${2:-$CONFIG_FILE}"
+    ;;
+  *)
+    usage
+    ;;
+esac
+
+# --- Read Existing Value ---
+CURRENT_VAL=""
+if [[ -f "$CONFIG_FILE" ]]; then
+  CURRENT_VAL=$(awk -F '=' '/^[[:space:]]*MISE_ENV[[:space:]]*=/ {
+    val=$2
+    sub(/^[[:space:]]*["'"'"']/, "", val)
+    sub(/["'"'"'][[:space:]]*$/, "", val)
+    print val
+  }' "$CONFIG_FILE")
+fi
+
+# --- Helper ---
+get_env_array() {
+  local raw="$1"
+  local -a arr=()
+  if [[ -n "$raw" ]]; then
+    IFS=',' read -ra arr <<< "$raw"
+  fi
+  echo "${arr[@]}"
+}
+
+# --- Actions ---
+case "$ACTION" in
+  list|ls)
+    echo "Active target file: $CONFIG_FILE"
+    if [[ -z "$CURRENT_VAL" ]]; then
+      echo "MISE_ENV: (none set)"
+    else
+      echo "MISE_ENV:"
+      IFS=',' read -ra ENVS <<< "$CURRENT_VAL"
+      for item in "${ENVS[@]}"; do
+        echo "  - $item"
+      done
+    fi
+
+    echo ""
+    echo "Discovered *.local.toml files:"
+    if [[ ${#candidates[@]} -gt 0 ]]; then
+      for c in "${candidates[@]}"; do
+        val=$(awk -F '=' '/^[[:space:]]*MISE_ENV[[:space:]]*=/ {
+          v=$2; sub(/^[[:space:]]*["'"'"']/, "", v); sub(/["'"'"'][[:space:]]*$/, "", v); print v
+        }' "$c" 2>/dev/null || true)
+        echo "  - $c (MISE_ENV=\"${val:-(empty)}\")"
+      done
+    else
+      echo "  (none)"
+    fi
+    exit 0
+    ;;
+
+  add)
+    read -ra ENVS <<< "$(get_env_array "$CURRENT_VAL")"
+    for item in "${ENVS[@]}"; do
+      if [[ "$item" == "$TARGET_ENV" ]]; then
+        echo "'$TARGET_ENV' is already present in $CONFIG_FILE: \"$CURRENT_VAL\""
+        exit 0
+      fi
+    done
+
+    if [[ -z "$CURRENT_VAL" ]]; then
+      NEW_VAL="$TARGET_ENV"
+    else
+      NEW_VAL="${CURRENT_VAL},${TARGET_ENV}"
+    fi
+
+    mise set --file "$CONFIG_FILE" MISE_ENV="$NEW_VAL"
+    echo "Added '$TARGET_ENV' -> $CONFIG_FILE: MISE_ENV = \"$NEW_VAL\""
+    ;;
+
+  rm)
+    if [[ -z "$CURRENT_VAL" ]]; then
+      echo "MISE_ENV is empty or not set in $CONFIG_FILE."
+      exit 0
+    fi
+
+    read -ra ENVS <<< "$(get_env_array "$CURRENT_VAL")"
+    NEW_ENVS=()
+    FOUND=0
+
+    for item in "${ENVS[@]}"; do
+      if [[ "$item" == "$TARGET_ENV" ]]; then
+        FOUND=1
+      else
+        NEW_ENVS+=("$item")
+      fi
+    done
+
+    if [[ $FOUND -eq 0 ]]; then
+      echo "'$TARGET_ENV' not found in $CONFIG_FILE: \"$CURRENT_VAL\""
+      exit 0
+    fi
+
+    NEW_VAL=$(IFS=,; echo "${NEW_ENVS[*]}")
+
+    if [[ -z "$NEW_VAL" ]]; then
+      mise unset --file "$CONFIG_FILE" MISE_ENV
+      echo "Removed '$TARGET_ENV' -> MISE_ENV is now unset in $CONFIG_FILE"
+    else
+      mise set --file "$CONFIG_FILE" MISE_ENV="$NEW_VAL"
+      echo "Removed '$TARGET_ENV' -> $CONFIG_FILE: MISE_ENV = \"$NEW_VAL\""
+    fi
+    ;;
+esac
