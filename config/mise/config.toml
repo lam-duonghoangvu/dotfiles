@@ -4,44 +4,31 @@ dotfiles.default_mode = "symlink"
 auto_update = true
 
 [tools]
-antigravity-cli = "latest"
-awscli = { version = "latest", symlink_bins = "true" }
 bat = "latest"
 claude-code = "latest"
 duckdb = "latest"
-eza = "latest"
-fastfetch = "latest"
 fd = "latest"
 fzf = "latest"
 "github:alltuner/mise-completions-sync" = "latest"
-go = "latest"
-"go:golang.org/x/tools/cmd/goimports" = "latest"
-"go:golang.org/x/tools/gopls" = "latest"
 jq = "latest"
 lazygit = "latest"
 lazyssh = "latest"
 lua-language-server = "latest"
 neovim = "latest"
 node = "latest"
-"pipx:huggingface-hub" = "latest"
-"pipx:kaggle" = "latest"
-"pipx:mypy" = "latest"
 prettier = "latest"
 ripgrep = "latest"
-ruff = "latest"
 sqlite = "latest"
 starship = "latest"
 stylua = "latest"
 tlrc = "latest"
 tmux = "latest"
 tree-sitter = "latest"
-uv = "latest"
 zoxide = "latest"
 
 [dotfiles]
 "~/.config/bat" = "~/.dotfiles/config/bat"
 "~/.config/btop" = "~/.dotfiles/config/btop"
-"~/.config/fastfetch" = "~/.dotfiles/config/fastfetch"
 "~/.config/ghostty" = "~/.dotfiles/config/ghostty"
 "~/.config/lazygit" = "~/.dotfiles/config/lazygit"
 "~/.config/mise" = "~/.dotfiles/config/mise"
@@ -50,7 +37,7 @@ zoxide = "latest"
 "~/.config/tmux" = "~/.dotfiles/config/tmux"
 "~/.config/vicinae" = "~/.dotfiles/config/vicinae"
 "~/.config/zsh" = "~/.dotfiles/config/zsh"
-"~/.zshenv" = "~/.dotfiles/zsh/.zshenv"
+"~/.zshenv" = "~/.dotfiles/config/zshenv/.zshenv"
 
 [bootstrap.hooks]
 post-tools = """
@@ -63,6 +50,4 @@ TPM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/plugins/tpm"
 post-dotfiles = """
 mise run bootstrap-personal
 """
-
-[shell_alias]
 
