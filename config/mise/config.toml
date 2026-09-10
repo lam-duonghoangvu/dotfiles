@@ -4,6 +4,7 @@ dotfiles.default_mode = "symlink"
 auto_update = true
 
 [tools]
+antigravity-cli = "latest"
 bat = "latest"
 claude-code = "latest"
 duckdb = "latest"
