@@ -13,11 +13,6 @@
       "rev": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
-    "harpoon": {
-      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
-      "src": "https://github.com/ThePrimeagen/harpoon",
-      "version": "'harpoon2'"
-    },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
@@ -28,11 +23,11 @@
     },
     "mini.files": {
       "rev": "a249438d15fa6f64085ba83a9d1794d726aaf5ad",
-      "src": "https://github.com/echasnovski/mini.files"
+      "src": "https://github.com/nvim-mini/mini.files"
     },
     "mini.icons": {
       "rev": "98faae31e9be1cc054ae63485e58ceb185efcad0",
-      "src": "https://github.com/echasnovski/mini.icons"
+      "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.notify": {
       "rev": "13df5edffc3e27937b166a0f25a8329b46e15a4e",
@@ -40,7 +35,7 @@
     },
     "mini.pairs": {
       "rev": "b1c5a726921b7a8c9321e9a7a208aa0571de5810",
-      "src": "https://github.com/echasnovski/mini.pairs"
+      "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "nvim": {
       "rev": "cb5665990a797b102715188e73c44c3931b3b42e",
@@ -48,13 +43,9 @@
       "version": "1.0.0 - 2.0.0"
     },
     "nvim-treesitter": {
-      "rev": "5cb0114e6242625db56dd6440e945ed1ece10bc7",
+      "rev": "d4d59cb369da46b95699bd2200efbcffc6dadb3b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
-    },
-    "plenary.nvim": {
-      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
-      "src": "https://github.com/nvim-lua/plenary.nvim"
     }
   }
 }

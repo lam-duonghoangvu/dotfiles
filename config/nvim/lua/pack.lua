@@ -8,10 +8,6 @@ vim.pack.add({
 	-- Files Explorer
 	{ src = "https://github.com/nvim-mini/mini.files" },
 
-	-- Harpoon
-	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
-	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-
 	-- Fuzzy Finder
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 
