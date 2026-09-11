@@ -39,8 +39,7 @@
     },
     "nvim": {
       "rev": "cb5665990a797b102715188e73c44c3931b3b42e",
-      "src": "https://github.com/catppuccin/nvim",
-      "version": "1.0.0 - 2.0.0"
+      "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-treesitter": {
       "rev": "d4d59cb369da46b95699bd2200efbcffc6dadb3b",

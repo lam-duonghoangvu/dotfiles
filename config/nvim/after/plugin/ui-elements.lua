@@ -1,3 +1,8 @@
+-- Notification
+vim.pack.add({
+	{ src = "https://github.com/nvim-mini/mini.notify" },
+})
+
 local notify = require("mini.notify")
 
 notify.setup({
