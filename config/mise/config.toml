@@ -42,13 +42,19 @@ zoxide = "latest"
 
 [bootstrap.hooks]
 post-tools = """
+ZSH_PLUGINS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
+mkdir -p "$ZSH_PLUGINS_DIR"
+[ ! -d "$ZSH_PLUGINS_DIR/zsh-autocomplete" ] && git clone https://github.com/marlonrichert/zsh-autocomplete.git "$ZSH_PLUGINS_DIR/zsh-autocomplete"
+[ ! -d "$ZSH_PLUGINS_DIR/zsh-autosuggestions" ] && git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_PLUGINS_DIR/zsh-autosuggestions"
+[ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting"
+
 TPM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/tmux/plugins/tpm"
-
 [ ! -d "$TPM_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
-
 "$TPM_DIR/bin/install_plugins"
 """
 post-dotfiles = """
-mise run bootstrap-personal
+case ",$MISE_ENV," in
+  *,personal,*) mise run bootstrap-personal ;;
+esac
 """
 

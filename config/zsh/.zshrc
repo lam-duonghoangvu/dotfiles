@@ -59,9 +59,10 @@ if command -v bat &>/dev/null; then
 fi
 
 # zsh-syntax-highlighting, zsh-autocomplete, zsh-autosuggestions
-source "$HOME/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_PLUGINS_DIR="$XDG_DATA_HOME/zsh/plugins"
+source "$ZSH_PLUGINS_DIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Navigation in menu selection
 bindkey -M menuselect "^[[D" .backward-char "^[OD" .backward-char
