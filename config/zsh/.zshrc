@@ -13,6 +13,10 @@ setopt HIST_FIND_NO_DUPS
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
 
+# Completions
+fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
+fpath=($XDG_DATA_HOME/mise-completions/zsh $fpath)
+
 # Use emacs keymaps to enable Ctrl-N and Ctrl-P to work with zsh-autocomplete
 bindkey -e
 
@@ -25,9 +29,6 @@ alias ll="ls -FAlh --color=always"
 if command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
 fi
-
-# misecompsync
-fpath=(~/.local/share/mise-completions/zsh $fpath)
 
 # neovim
 if command -v nvim &>/dev/null; then
