@@ -2,17 +2,16 @@
 
 source "$HOME/.config/sketchybar/colors.sh"
 
-BATT_INFO="$(pmset -g batt)"
-PERCENTAGE="$(echo "$BATT_INFO" | grep -o "[0-9]\{1,3\}%" | tr -d '%')"
-CHARGING="$(echo "$BATT_INFO" | grep 'AC Power')"
+PERCENTAGE="$(pmset -g batt | grep -o "[0-9]\{1,3\}%" | tr -d '%')"
+CHARGING="$(pmset -g batt | grep 'AC Power')"
 LOW_POWER="$(pmset -g | grep -w 'lowpowermode' | awk '{print $2}')"
 
 if [ -z "$PERCENTAGE" ]; then
   exit 0
 fi
 
-COLOR=$TEXT
 ICON="󰁹"
+COLOR=$TEXT
 
 if [ -n "$CHARGING" ]; then
   ICON="󰂄"

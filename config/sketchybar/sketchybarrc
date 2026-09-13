@@ -2,9 +2,7 @@
 
 source "$HOME/.config/sketchybar/colors.sh"
 
-ITEM_DIR="$HOME/.config/sketchybar/items"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-HELPER_DIR="$HOME/.config/sketchybar/helper"
 
 FONT="JetBrainsMono Nerd Font"
 FONT_WEIGHT="Regular"
@@ -14,9 +12,7 @@ HEIGHT=24
 PADDINGS=3
 BORDER_WIDTH=1
 CORNER_RADIUS=20
-SHADOW=off
 
-SPACE_CLICK_SCRIPT="aerospace workspace \$SID 2>/dev/null"
 
 sketchybar --bar height=$HEIGHT \
   color=$TRANSPARENT \
@@ -36,19 +32,40 @@ sketchybar --bar height=$HEIGHT \
   label.padding_right=$PADDINGS \
   background.padding_right=$PADDINGS \
   background.padding_left=$PADDINGS \
-  popup.background.border_width=$BORDER_WIDTH \
-  popup.background.corner_radius=$CORNER_RADIUS \
-  popup.background.border_color=$BORDER_COLOR \
-  popup.background.color=$BACKGROUND_COLOR \
-  popup.background.shadow.drawing=$SHADOW
 
-# Left
-source "$ITEM_DIR/spaces.sh"
+##### Spaces #####
+sketchybar --add event aerospace_workspace_change
+for sid in $(aerospace list-workspaces --all); do
+  sketchybar --add item "space.$sid" left \
+    --subscribe "space.$sid" aerospace_workspace_change \
+    --set "space.$sid" \
+    icon.highlight_color=$ICON_ACCENT_COLOR \
+    icon.padding_left=10 \
+    click_script="aerospace workspace $sid" \
+    script="$PLUGIN_DIR/spaces.sh $sid"
+done
 
-# Right
-source "$ITEM_DIR/calendar.sh"
-source "$ITEM_DIR/battery.sh"
-source "$ITEM_DIR/keyboard.sh"
+##### Calendar #####
+sketchybar --add item calendar right \
+  --subscribe calendar system_woke forced \
+  --set calendar update_freq=10 \
+  icon=󰃭 \
+  script="$PLUGIN_DIR/calendar.sh"
+
+##### Battery #####
+sketchybar --add item battery right \
+  --subscribe battery power_source_change system_woke front_app_switched \
+  --set battery update_freq=15 \
+  script="$PLUGIN_DIR/battery.sh"
+
+##### Text Input #####
+sketchybar --add event input_change \
+  --add item text_input right \
+  --subscribe text_input input_change \
+  --set text_input update_freq=2 \
+  icon=󰌌 \
+  click_script="sketchybar --set \$NAME popup.drawing=toggle" \
+  script="$PLUGIN_DIR/text_input.sh"
 
 sketchybar --add bracket left_island '/space.*/' \
   --set left_island background.color=$BACKGROUND_COLOR \
@@ -58,7 +75,7 @@ sketchybar --add bracket left_island '/space.*/' \
   background.height=$HEIGHT \
   background.drawing=on
 
-sketchybar --add bracket right_island 'keyboard' 'battery' 'calendar' \
+sketchybar --add bracket right_island 'text_input' 'battery' 'calendar' \
   --set right_island background.color=$BACKGROUND_COLOR \
   background.border_width=$BORDER_WIDTH \
   background.corner_radius=$CORNER_RADIUS \
