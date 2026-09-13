@@ -1,9 +1,7 @@
-#!/bin/bash
-
 options=(
   style=round
   width=4
-  hidpi=off
+  hidpi=on
   active_color=0xffcdd6f4
   inactive_color=0xffcdd6f4
 )
