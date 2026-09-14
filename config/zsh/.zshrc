@@ -13,6 +13,15 @@ setopt HIST_FIND_NO_DUPS
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
 
+# Better prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats ' (%b)'
+zstyle ':vcs_info:*' enable git
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%~%f%F{yellow}${vcs_info_msg_0_}%f
+%(?.%F{green}.%F{red})> %f'
+
 # Completions
 fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
 fpath=($XDG_DATA_HOME/mise-completions/zsh $fpath)
@@ -34,11 +43,6 @@ fi
 if command -v nvim &>/dev/null; then
   alias nv="nvim"
   export EDITOR=nvim
-fi
-
-# starship
-if command -v starship &>/dev/null; then
-  eval "$(starship init zsh)"
 fi
 
 # zoxide (cd replacement)
