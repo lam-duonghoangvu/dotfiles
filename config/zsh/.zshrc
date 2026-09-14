@@ -35,23 +35,23 @@ alias la="ls -1FA --color=always"
 alias ll="ls -FAlh --color=always"
 
 # mise
-if command -v mise &>/dev/null; then
+if (( $+commands[mise] )); then
   eval "$(mise activate zsh)"
 fi
 
 # neovim
-if command -v nvim &>/dev/null; then
+if (( $+commands[nvim] )); then
   alias nv="nvim"
   export EDITOR=nvim
 fi
 
 # zoxide (cd replacement)
-if command -v zoxide &>/dev/null; then
+if (( $+commands[zoxide] )); then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
 # fzf
-if command -v fzf &>/dev/null; then
+if (( $+commands[fzf] )); then
   eval "$(fzf --zsh)"
   export FZF_DEFAULT_COMMAND="fd --hidden --exclude .git"
   export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && (ls -1FA --color=always) || (bat --color=always -n --line-range :500 {} 2>/dev/null || cat {})'"
@@ -59,7 +59,7 @@ if command -v fzf &>/dev/null; then
 fi
 
 # bat (cat replacement)
-if command -v bat &>/dev/null; then
+if (( $+commands[bat] )); then
   alias cat="bat --color=always -n --line-range :500"
 fi
 
