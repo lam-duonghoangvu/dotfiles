@@ -1,6 +1,3 @@
 [tools]
-"pipx:huggingface-hub" = "latest"
-"pipx:kaggle" = "latest"
-"pipx:mypy" = "latest"
 ruff = "latest"
 "uv" = "latest"

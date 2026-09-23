@@ -4,26 +4,20 @@ dotfiles.default_mode = "symlink"
 auto_update = true
 
 [tools]
-antigravity-cli = "latest"
+awscli = { version = "latest", symlink_bins = "true" }
 bat = "latest"
 claude-code = "latest"
-duckdb = "latest"
 fd = "latest"
 fzf = "latest"
 "github:alltuner/mise-completions-sync" = "latest"
-jq = "latest"
 lazygit = "latest"
-lazyssh = "latest"
 lua-language-server = "latest"
 neovim = "latest"
 node = "latest"
 prettier = "latest"
 ripgrep = "latest"
-sqlite = "latest"
 stylua = "latest"
-tlrc = "latest"
 tmux = "latest"
-tree-sitter = "latest"
 zoxide = "latest"
 
 [dotfiles]
