@@ -54,7 +54,9 @@ fi
 if (( $+commands[fzf] )); then
   eval "$(fzf --zsh)"
   export FZF_DEFAULT_COMMAND="fd --hidden --exclude .git"
-  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && (ls -1FA --color=always) || (bat --color=always -n --line-range :500 {} 2>/dev/null || cat {})'"
+  export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && \
+    (ls -1FA --color=always) || \
+    (bat --color=always -n --line-range :100 {} 2>/dev/null || cat {})'"
   export FZF_CTRL_R_OPTS="--preview ''"
 fi
 
