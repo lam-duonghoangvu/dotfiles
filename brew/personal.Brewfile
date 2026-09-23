@@ -1,6 +1,3 @@
-# Developer tools
-cask "datagrip"
-
 # Messaging
 cask "beeper"
 cask "discord"
