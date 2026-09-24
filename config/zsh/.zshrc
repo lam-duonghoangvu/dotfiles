@@ -38,9 +38,10 @@ ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
     compinit -d "$ZSH_COMPDUMP" && touch "$ZSH_COMPDUMP"
   fi
 } $ZSH_COMPDUMP(N.mh-24)
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' select-prompt '%S%p%s'
+LISTMAX=100000
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-bindkey "^N" menu-complete
 bindkey -M menuselect "^N" down-line-or-history
 bindkey -M menuselect "^P" up-line-or-history
 bindkey -M menuselect "^M" .accept-line
@@ -80,9 +81,3 @@ fi
 if (( $+commands[bat] )); then
   alias cat="bat --color=always -n --line-range :500"
 fi
-
-# zsh-syntax-highlighting, zsh-autosuggestions
-ZSH_PLUGINS_DIR="$XDG_DATA_HOME/zsh/plugins"
-source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-bindkey "^Y" autosuggest-accept
