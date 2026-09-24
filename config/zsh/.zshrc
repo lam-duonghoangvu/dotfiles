@@ -13,6 +13,9 @@ setopt HIST_FIND_NO_DUPS
 setopt NOBEEP
 setopt NUMERIC_GLOB_SORT
 
+# Use Emacs keybind
+bindkey -e
+
 # Better prompt
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -24,10 +27,24 @@ PROMPT='%F{blue}%~%f%F{yellow}${vcs_info_msg_0_}%f
 
 # Completions
 fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
-fpath=($XDG_DATA_HOME/mise-completions/zsh $fpath)
-
-# Use emacs keymaps to enable Ctrl-N and Ctrl-P to work with zsh-autocomplete
-bindkey -e
+zmodload zsh/complist
+autoload -Uz compinit
+ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
+() {
+  if (( $# )); then
+    compinit -C -d "$ZSH_COMPDUMP"
+  else
+    mkdir -p "${ZSH_COMPDUMP:h}"
+    compinit -d "$ZSH_COMPDUMP" && touch "$ZSH_COMPDUMP"
+  fi
+} $ZSH_COMPDUMP(N.mh-24)
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+bindkey "^N" menu-complete
+bindkey -M menuselect "^N" down-line-or-history
+bindkey -M menuselect "^P" up-line-or-history
+bindkey -M menuselect "^M" .accept-line
+bindkey -M menuselect "^[" accept-line
 
 # Better ls
 alias ls="ls -1F --color=always"
@@ -57,7 +74,6 @@ if (( $+commands[fzf] )); then
   export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview '[ -d {} ] && \
     (ls -1FA --color=always) || \
     (bat --color=always -n --line-range :100 {} 2>/dev/null || cat {})'"
-  export FZF_CTRL_R_OPTS="--preview ''"
 fi
 
 # bat (cat replacement)
@@ -65,17 +81,8 @@ if (( $+commands[bat] )); then
   alias cat="bat --color=always -n --line-range :500"
 fi
 
-# zsh-syntax-highlighting, zsh-autocomplete, zsh-autosuggestions
+# zsh-syntax-highlighting, zsh-autosuggestions
 ZSH_PLUGINS_DIR="$XDG_DATA_HOME/zsh/plugins"
-source "$ZSH_PLUGINS_DIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# Navigation in menu selection
-bindkey -M menuselect "^[[D" .backward-char "^[OD" .backward-char
-bindkey -M menuselect "^[[C" .forward-char  "^[OC" .forward-char
-bindkey -M menuselect "^B" .backward-char
-bindkey -M menuselect "^F" .forward-char
-bindkey -M menuselect "^M" .accept-line
 bindkey "^Y" autosuggest-accept
-
