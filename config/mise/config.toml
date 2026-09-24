@@ -17,7 +17,6 @@ node = "latest"
 prettier = "latest"
 ripgrep = "latest"
 stylua = "latest"
-tlrc = "latest"
 tmux = "latest"
 zoxide = "latest"
 
