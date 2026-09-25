@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PORTAL=vpngate-student.ntu.edu.sg
+IMAGE=yuezk/globalprotect-openconnect:2.6.5
+
+# macOS: the tunnel must live on the host, so only SAML auth runs in docker
+# (gpauth) and the connection itself is made by the native openconnect.
+# NTU has a single gateway on the portal host, so auth goes straight to it:
+# going through the portal would need a second SAML login for the gateway.
+command -v openconnect >/dev/null || {
+  echo "openconnect not found, run: brew install openconnect" >&2
+  exit 1
+}
+
+LIMA_SSH="$HOME/.colima/_lima/colima/ssh.config"
+
+# gpauth serves the login page on the colima VM's IP, which macOS can't reach.
+# Echo its output, and once the URL shows up, forward that port over the
+# VM's ssh and open it locally. JSON lines (the auth result) go to stdout.
+forward_auth_url() {
+  local line ip port path tunnel_pid=""
+  while IFS= read -r line; do
+    line=${line%$'\r'}
+    printf '%s\n' "$line" >&2
+    if [[ -z $tunnel_pid && $line =~ http://([0-9.]+):([0-9]+)(/[A-Za-z0-9-]+) ]]; then
+      ip=${BASH_REMATCH[1]} port=${BASH_REMATCH[2]} path=${BASH_REMATCH[3]}
+      ssh -F "$LIMA_SSH" -N -o ExitOnForwardFailure=yes \
+        -L "$port:$ip:$port" lima-colima &
+      tunnel_pid=$!
+      sleep 1
+      open "http://localhost:$port$path"
+    elif [[ $line == \{* ]]; then
+      printf '%s\n' "$line"
+    fi
+  done
+  if [[ -n $tunnel_pid ]]; then kill "$tunnel_pid" 2>/dev/null || true; fi
+}
+
+sudo -v
+
+auth=$(docker run --rm -it --network host --entrypoint gpauth "$IMAGE" \
+  --gateway --browser remote "$PORTAL" | forward_auth_url | tail -n 1)
+
+auth=$(jq -c '[.. | objects | select(has("username"))][0] // empty' <<<"$auth" 2>/dev/null || true)
+[[ -n $auth ]] || { echo "no auth data from gpauth" >&2; exit 1; }
+
+user=$(jq -r '.username' <<<"$auth")
+cookie=$(jq -r '.preloginCookie // empty' <<<"$auth")
+usergroup=gateway:prelogin-cookie
+if [[ -z $cookie ]]; then
+  cookie=$(jq -r '.portalUserauthcookie // empty' <<<"$auth")
+  usergroup=gateway:portal-userauthcookie
+fi
+[[ -n $cookie ]] || { echo "no cookie in auth data: $auth" >&2; exit 1; }
+
+printf '%s\n' "$cookie" | sudo openconnect --protocol=gp \
+  --user="$user" --os=linux --usergroup="$usergroup" \
+  --passwd-on-stdin "$PORTAL"
