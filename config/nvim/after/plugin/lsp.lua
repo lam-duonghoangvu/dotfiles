@@ -12,7 +12,7 @@ blink.setup({
 		preset = "default",
 		["<C-p>"] = { "select_prev", "fallback" },
 		["<C-n>"] = { "select_next", "fallback" },
-		["<CR>"] = { "accept", "fallback" },
+		["<C-y>"] = { "accept", "fallback" },
 	},
 
 	completion = {
