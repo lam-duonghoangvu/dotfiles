@@ -7,13 +7,13 @@
    },
    "font": {
       "normal": {
-         "family": "JetBrains Mono",
+         "family": ".AppleSystemUIFont",
          "size": 16
       }
    },
    "theme": {
       "dark": {
-         "name": "catppuccin-mocha"
+         "name": "vicinae-dark"
       }
    },
    "telemetry": {

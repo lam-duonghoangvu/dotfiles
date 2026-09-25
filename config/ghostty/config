@@ -1,7 +1,7 @@
 term = xterm-256color
 theme = "Catppuccin Mocha"
-font-family = "JetBrainsMono Nerd Font"
-font-size = 18
+background = 000000
+font-size = 16
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
