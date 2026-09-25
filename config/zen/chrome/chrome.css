@@ -1,7 +1,0 @@
-@import url("modules/tab-styles.css");
-
-:root {
-  --essentials-tab-icons-size: 30px;
-  --pinned-tab-icons-size: 26px;
-  --normal-tab-icons-size: 26px;
-}
