@@ -1,10 +1,7 @@
-@import url("modules/general-ui.css");
-@import url("modules/sidebar.css");
-@import url("modules/urlbar.css");
 @import url("modules/tab-styles.css");
-@import url("modules/tab-numbers.css");
-@import url("modules/miniplayer.css");
-@import url("modules/tab-folders.css");
 
-@import url("config.css");
-
+:root {
+  --essentials-tab-icons-size: 30px;
+  --pinned-tab-icons-size: 26px;
+  --normal-tab-icons-size: 26px;
+}
