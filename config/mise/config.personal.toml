@@ -1,24 +1,7 @@
 [tasks.bootstrap-personal]
 description = "Run bootstrap personal tasks"
 run = """
-mise run link-beepertexts
-mise run link-thunderbird
 mise run link-zen
-"""
-
-[tasks.link-beepertexts]
-description = "Symlink BeeperTexts custom.css to dotfiles"
-run = """
-mkdir -p "$BEEPERTEXTS_CONFIG_DIR"
-ln -sf "$HOME/.dotfiles/config/beepertexts/custom.css" "$BEEPERTEXTS_CONFIG_DIR/custom.css"
-"""
-
-[tasks.link-thunderbird]
-description = "Symlink Thunderbird user.js and chrome to dotfiles"
-run = """
-mkdir -p "$THUNDERBIRD_PROFILE_DIR"
-ln -sf "$HOME/.dotfiles/config/thunderbird/user.js" "$THUNDERBIRD_PROFILE_DIR/user.js"
-ln -sfn "$HOME/.dotfiles/config/thunderbird/chrome" "$THUNDERBIRD_PROFILE_DIR/chrome"
 """
 
 [tasks.link-zen]

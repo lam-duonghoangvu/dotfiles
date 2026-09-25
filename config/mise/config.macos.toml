@@ -1,7 +1,5 @@
 [dotfiles]
 "~/.config/aerospace" = "~/.dotfiles/config/aerospace"
-"~/.config/borders" = "~/.dotfiles/config/borders"
-"~/.config/sketchybar" = "~/.dotfiles/config/sketchybar"
 
 [bootstrap.brew]
 adopt = true
