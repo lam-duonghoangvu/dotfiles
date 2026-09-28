@@ -13,7 +13,7 @@ command -v openconnect >/dev/null || {
   exit 1
 }
 
-LIMA_SSH="$HOME/.colima/_lima/colima/ssh.config"
+LIMA_SSH="$XDG_CONFIG_HOME/colima/_lima/colima/ssh.config"
 
 # gpauth serves the login page on the colima VM's IP, which macOS can't reach.
 # Echo its output, and once the URL shows up, forward that port over the
