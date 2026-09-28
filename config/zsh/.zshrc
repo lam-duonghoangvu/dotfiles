@@ -18,11 +18,11 @@ bindkey -e
 
 # Better prompt
 autoload -Uz vcs_info
-precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats ' (%b)'
-zstyle ':vcs_info:*' enable git
 setopt PROMPT_SUBST
-PROMPT='%F{blue}%~%f%F{yellow}${vcs_info_msg_0_}%f
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' (%b)'
+precmd() { vcs_info }
+PROMPT='%F{blue}%~%F{yellow}${vcs_info_msg_0_}%f
 %F{green}> %f'
 
 # Completions
@@ -39,9 +39,9 @@ ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
   fi
 } $ZSH_COMPDUMP(N.mh-24)
 zstyle ':completion:*' menu yes select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' select-prompt '%S%p%s'
 LISTMAX=100000
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 bindkey -M menuselect "^N" down-line-or-history
 bindkey -M menuselect "^P" up-line-or-history
 bindkey -M menuselect "^M" .accept-line
