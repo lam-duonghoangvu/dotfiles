@@ -1,9 +1,6 @@
 [dotfiles]
 "~/.config/aerospace" = "~/.dotfiles/config/aerospace"
 
-[bootstrap.brew]
-adopt = true
-
 [bootstrap.macos.dock]
 autohide = true
 
