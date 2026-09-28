@@ -23,7 +23,7 @@ zstyle ':vcs_info:git:*' formats ' (%b)'
 zstyle ':vcs_info:*' enable git
 setopt PROMPT_SUBST
 PROMPT='%F{blue}%~%f%F{yellow}${vcs_info_msg_0_}%f
-%(?.%F{green}.%F{red})> %f'
+%F{green}> %f'
 
 # Completions
 fpath=($XDG_DATA_HOME/zsh/site-functions $fpath)
@@ -61,11 +61,6 @@ fi
 if (( $+commands[nvim] )); then
   alias nv="nvim"
   export EDITOR=nvim
-fi
-
-# zoxide (cd replacement)
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init --cmd cd zsh)"
 fi
 
 # fzf
