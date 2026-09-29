@@ -4,21 +4,18 @@ dotfiles.default_mode = "symlink"
 auto_update = true
 
 [tools]
-awscli = { version = "latest", symlink_bins = "true" }
 bat = "latest"
 claude-code = "latest"
+dprint = "latest"
 fd = "latest"
 fzf = "latest"
 lazydocker = "latest"
 lazygit = "latest"
 lua-language-server = "latest"
 neovim = "latest"
-node = "latest"
-prettier = "latest"
 ripgrep = "latest"
 ruff = "latest"
 stylua = "latest"
-tmux = "latest"
 uv = "latest"
 
 [dotfiles]
@@ -38,4 +35,3 @@ case ",$MISE_ENV," in
   *,personal,*) mise run bootstrap-personal ;;
 esac
 """
-

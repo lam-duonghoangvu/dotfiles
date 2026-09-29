@@ -7,7 +7,7 @@ autohide = true
 [bootstrap.macos.defaults]
 "com.apple.dock" = {
   autohide-time-modifier = 0,
-  autohide-delay = 0
+  autohide-delay = 0,
 }
 
 [bootstrap.hooks]
@@ -15,6 +15,7 @@ post-defaults = "killall Dock"
 
 [tools]
 colima = "latest"
+docker-cli = "latest"
 lima = "latest"
 mole = { version = "latest", additional_asset_patterns = ['binaries-darwin-{{ arch(x64="amd64") }}.tar.gz'], bin_path = ".", filter_bins = ["mo", "mole"], platforms = { macos-arm64 = { url = "https://github.com/tw93/Mole/archive/refs/tags/V{{ version }}.tar.gz" }, macos-x64 = { url = "https://github.com/tw93/Mole/archive/refs/tags/V{{ version }}.tar.gz" } }, postinstall = """
 set -eu
@@ -23,4 +24,4 @@ mv analyze-darwin-* bin/analyze-go
 mv status-darwin-* bin/status-go
 ln -s ../lib ../bin .mise-bins/
 """, strip_components = 1, version_prefix = "V" }
-
+tmux = "latest"
