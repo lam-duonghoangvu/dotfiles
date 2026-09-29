@@ -13,23 +13,23 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 150
 
 # Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = "tiles"
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
 #               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'auto'
+default-root-container-orientation = "auto"
 
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focused-monitor-changed = ["move-mouse monitor-lazy-center"]
 
 # Also see: https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
 [key-mapping]
-preset = 'qwerty'
+preset = "qwerty"
 
 [gaps]
 outer.top = 1
@@ -38,64 +38,64 @@ outer.top = 1
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
-alt-shift-a = 'layout accordion horizontal vertical'
-alt-shift-t = 'layout tiles horizontal vertical'
-alt-shift-f = 'fullscreen'
+alt-shift-a = "layout accordion horizontal vertical"
+alt-shift-t = "layout tiles horizontal vertical"
+alt-shift-f = "fullscreen"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-h = "focus left"
+alt-j = "focus down"
+alt-k = "focus up"
+alt-l = "focus right"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+alt-shift-h = "move left"
+alt-shift-j = "move down"
+alt-shift-k = "move up"
+alt-shift-l = "move right"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
+alt-1 = "workspace 1"
+alt-2 = "workspace 2"
+alt-3 = "workspace 3"
+alt-4 = "workspace 4"
+alt-5 = "workspace 5"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
-alt-tab = 'workspace-back-and-forth'
+alt-shift-1 = "move-node-to-workspace 1 --focus-follows-window"
+alt-shift-2 = "move-node-to-workspace 2 --focus-follows-window"
+alt-shift-3 = "move-node-to-workspace 3 --focus-follows-window"
+alt-shift-4 = "move-node-to-workspace 4 --focus-follows-window"
+alt-shift-5 = "move-node-to-workspace 5 --focus-follows-window"
+alt-tab = "workspace-back-and-forth"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+alt-shift-semicolon = "mode service"
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
+esc = ["reload-config", "mode main"]
+r = ["flatten-workspace-tree", "mode main"] # reset layout
 
 [workspace-to-monitor-force-assignment]
-1 = 'DELL S2319H'
-2 = 'DELL S2319H'
-3 = 'DELL S2319H'
-4 = 'DELL S2319H'
-5 = 'DELL S2319H'
+1 = "DELL S2319H"
+2 = "DELL S2319H"
+3 = "DELL S2319H"
+4 = "DELL S2319H"
+5 = "DELL S2319H"
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
-run = 'move-node-to-workspace 1'
+if.app-id = "app.zen-browser.zen"
+run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 2'
+if.app-id = "com.mitchellh.ghostty"
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.automattic.beeper.desktop'
-run = 'move-node-to-workspace 4'
+if.app-id = "com.automattic.beeper.desktop"
+run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.thunderbird'
-run = 'move-node-to-workspace 5'
+if.app-id = "org.mozilla.thunderbird"
+run = "move-node-to-workspace 5"

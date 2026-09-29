@@ -9,80 +9,80 @@
 // Learn more about configuration at https://docs.vicinae.com/config
 
 {
-   "$schema": "https://vicinae.com/schemas/config.json",
-   "close_on_focus_loss": true,
-   "wrap_navigation": false,
-   "escape_key_behavior": "",
-   "favicon_service": "none",
-   "keybinding": "default",
-   "search_files_in_root": true,
-   "tray": {
+  "$schema": "https://vicinae.com/schemas/config.json",
+  "close_on_focus_loss": true,
+  "wrap_navigation": false,
+  "escape_key_behavior": "",
+  "favicon_service": "none",
+  "keybinding": "default",
+  "search_files_in_root": false,
+  "tray": {
+    "enabled": true
+  },
+  "global_shortcuts": {
+    "toggle": "control+SPACE"
+  },
+  "font": {
+    "normal": {
+      "family": ".AppleSystemUIFont",
+      "size": 16
+    }
+  },
+  "theme": {
+    "dark": {
+      "name": "vicinae-dark"
+    }
+  },
+  "telemetry": {
+    "system_info": false
+  },
+  "launcher_window": {
+    "opacity": 1,
+    "compact_mode": {
       "enabled": true
-   },
-   "global_shortcuts": {
-      "toggle": "control+SPACE"
-   },
-   "font": {
-      "normal": {
-         "family": ".AppleSystemUIFont",
-         "size": 16
-      }
-   },
-   "theme": {
-      "dark": {
-         "name": "vicinae-dark"
-      }
-   },
-   "telemetry": {
-      "system_info": false
-   },
-   "launcher_window": {
-      "opacity": 1,
-      "compact_mode": {
-         "enabled": true
-      },
-      "floating_status_bar": true,
-      "material": "none"
-   },
-   "providers": {
-      "browser-extension": {
-         "enabled": false
-      },
-      "developer": {
-         "enabled": false
-      },
-      "font": {
-         "enabled": false
-      },
-      "manage-shortcuts": {
-         "enabled": false
-      },
-      "media": {
-         "enabled": false
-      },
-      "raycast-compat": {
-         "enabled": false
-      },
-      "screenshots": {
-         "enabled": true
-      },
-      "scripts": {
-         "enabled": false
-      },
-      "shortcuts": {
-         "enabled": false
-      },
-      "snippets": {
-         "enabled": false
-      },
-      "system": {
-         "enabled": false
-      },
-      "theme": {
-         "enabled": false
-      },
-      "wm": {
-         "enabled": false
-      }
-   }
+    },
+    "floating_status_bar": true,
+    "material": "none"
+  },
+  "providers": {
+    "browser-extension": {
+      "enabled": false
+    },
+    "developer": {
+      "enabled": false
+    },
+    "font": {
+      "enabled": false
+    },
+    "manage-shortcuts": {
+      "enabled": false
+    },
+    "media": {
+      "enabled": false
+    },
+    "raycast-compat": {
+      "enabled": false
+    },
+    "screenshots": {
+      "enabled": true
+    },
+    "scripts": {
+      "enabled": false
+    },
+    "shortcuts": {
+      "enabled": false
+    },
+    "snippets": {
+      "enabled": false
+    },
+    "system": {
+      "enabled": false
+    },
+    "theme": {
+      "enabled": false
+    },
+    "wm": {
+      "enabled": false
+    }
+  }
 }
