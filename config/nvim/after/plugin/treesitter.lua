@@ -2,6 +2,11 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
+local ts_runtime = vim.fn.expand("~/.local/share/nvim/site/pack/core/opt/nvim-treesitter/runtime")
+if vim.uv.fs_stat(ts_runtime) then
+	vim.opt.rtp:append(ts_runtime)
+end
+
 local parsers = {
 	"lua",
 	"vim",
