@@ -10,6 +10,7 @@ user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 user_pref("zen.view.show-clear-tabs-button", false);
 
 // New Tab
+user_pref("zen.view.show-newtab-button-top", false);
 user_pref("zen.tabs.show-newtab-vertical", false);
 user_pref("browser.tabs.insertRelatedAfterCurrent", true);
 
