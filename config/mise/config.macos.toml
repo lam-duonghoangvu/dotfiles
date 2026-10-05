@@ -14,9 +14,6 @@ autohide = true
 post-defaults = "killall Dock"
 
 [tools]
-colima = "latest"
-docker-cli = "latest"
-lima = "latest"
 mole = { version = "latest", additional_asset_patterns = ['binaries-darwin-{{ arch(x64="amd64") }}.tar.gz'], bin_path = ".", filter_bins = ["mo", "mole"], platforms = { macos-arm64 = { url = "https://github.com/tw93/Mole/archive/refs/tags/V{{ version }}.tar.gz" }, macos-x64 = { url = "https://github.com/tw93/Mole/archive/refs/tags/V{{ version }}.tar.gz" } }, postinstall = """
 set -eu
 cd "$MISE_TOOL_INSTALL_PATH"
