@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+docker run --rm -it \
+  --network host \
+  --cap-add=NET_ADMIN \
+  --device=/dev/net/tun \
+  yuezk/globalprotect-openconnect:2.6.5 \
+  connect --browser remote vpngate-student.ntu.edu.sg
