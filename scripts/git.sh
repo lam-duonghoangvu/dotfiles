@@ -1,56 +1,35 @@
 #!/usr/bin/env bash
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$SCRIPT_DIR/../variables/colors.sh"
 
-echo -e "${CYAN}GIT CONFIG${RESET}"
+echo "GIT CONFIG"
 git_username=$(git config --global user.name 2>/dev/null || true)
 git_email=$(git config --global user.email 2>/dev/null || true)
 
 if [ -n "$git_username" ]; then
-  echo -e "${GREEN} [✓] Git Username: $git_username${RESET}"
+  echo " [✓] Current Git Username: $git_username"
 else
-  echo -e "${RED} [✗] Git Username: NOT SET${RESET}"
+  echo " [✗] No Git Username found"
 fi
 
 if [ -n "$git_email" ]; then
-  echo -e "${GREEN} [✓] Git Email: $git_email${RESET}"
+  echo " [✓] Current Git Email: $git_email"
 else
-  echo -e "${RED} [✗] Git Email: NOT SET${RESET}"
+  echo " [✗] No Git Email found"
 fi
 
-if [ -z "$git_username" ] || [ -z "$git_email" ]; then
-  prompt=" Configure Git settings? [Y/n]: "
-  def="y"
-else
-  prompt=" Configure Git settings? [y/N]: "
-  def="n"
+printf " Enter Git Username [%s]: " "$git_username"
+read -r name </dev/tty || read -r name || name=""
+if [ -n "$name" ]; then
+  git config --global user.name "$name"
+  echo " [✓] Git username updated: $name"
+elif [ -n "$git_username" ]; then
+  echo " [✓] Git username: $git_username"
 fi
 
-printf "%s" "$prompt"
-read -r ans </dev/tty || read -r ans || ans=""
-ans="${ans:-$def}"
-
-case "$ans" in
-[yY][eE][sS] | [yY])
-  printf " Enter Git Username [%s]: " "$git_username"
-  read -r name </dev/tty || read -r name || name=""
-  if [ -n "$name" ]; then
-    git config --global user.name "$name"
-    echo -e "${GREEN} [✓] Git username updated: $name${RESET}"
-  elif [ -n "$git_username" ]; then
-    echo -e "${GREEN} [✓] Git username: $git_username${RESET}"
-  fi
-
-  printf " Enter Git Email [%s]: " "$git_email"
-  read -r email </dev/tty || read -r email || email=""
-  if [ -n "$email" ]; then
-    git config --global user.email "$email"
-    echo -e "${GREEN} [✓] Git email updated: $email${RESET}"
-  elif [ -n "$git_email" ]; then
-    echo -e "${GREEN} [✓] Git email: $git_email${RESET}"
-  fi
-  ;;
-*)
-  echo -e "${YELLOW} Skipping Git configuration${RESET}"
-  ;;
-esac
+printf " Enter Git Email [%s]: " "$git_email"
+read -r email </dev/tty || read -r email || email=""
+if [ -n "$email" ]; then
+  git config --global user.email "$email"
+  echo " [✓] Git email updated: $email"
+elif [ -n "$git_email" ]; then
+  echo " [✓] Git email: $git_email"
+fi
