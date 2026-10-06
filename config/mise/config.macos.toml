@@ -21,4 +21,3 @@ mv analyze-darwin-* bin/analyze-go
 mv status-darwin-* bin/status-go
 ln -s ../lib ../bin .mise-bins/
 """, strip_components = 1, version_prefix = "V" }
-tmux = "latest"
