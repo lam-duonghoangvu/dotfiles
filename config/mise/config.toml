@@ -18,6 +18,7 @@ neovim = "latest"
 ripgrep = "latest"
 ruff = "latest"
 stylua = "latest"
+tmux = "latest"
 uv = "latest"
 
 [dotfiles]
