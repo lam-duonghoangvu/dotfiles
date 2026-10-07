@@ -1,2 +1,3 @@
 [tools]
+"github:zenbu-labs/terminal-browser" = "latest"
 lazydocker = "latest"
