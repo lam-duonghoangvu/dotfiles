@@ -22,6 +22,7 @@ tmux = "latest"
 uv = "latest"
 
 [dotfiles]
+"~/.local/scripts" = "~/.dotfiles/bin/scripts"
 "~/.config/bat" = "~/.dotfiles/config/bat"
 "~/.config/ghostty" = "~/.dotfiles/config/ghostty"
 "~/.config/mise" = "~/.dotfiles/config/mise"
