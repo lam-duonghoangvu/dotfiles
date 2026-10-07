@@ -5,7 +5,7 @@ PORTAL=vpngate-student.ntu.edu.sg
 
 link=${1:-}
 if [[ -z $link ]]; then
-  url=$(curl -fsS "https://$PORTAL/ssl-vpn/prelogin.esp?tmp=tmp&clientVer=4100&clientos=Linux&default-browser=1" |
+  url=$(curl -fsS "https://$PORTAL/ssl-vpn/prelogin.esp?default-browser=1" |
     sed -n 's:.*<saml-request>\(.*\)</saml-request>.*:\1:p' | base64 -d)
   echo "$url"
   [[ $OSTYPE == darwin* ]] && open "$url"
@@ -16,5 +16,5 @@ xml=$(base64 -d <<<"${link#globalprotectcallback:}")
 user=$(sed -n 's:.*<saml-username>\(.*\)</saml-username>.*:\1:p' <<<"$xml")
 cookie=$(sed -n 's:.*<prelogin-cookie>\(.*\)</prelogin-cookie>.*:\1:p' <<<"$xml")
 
-sudo openconnect --protocol=gp --user="$user" --os=linux \
+sudo openconnect --protocol=gp --user="$user" \
   --usergroup=gateway:prelogin-cookie --passwd-on-stdin "$PORTAL" <<<"$cookie"
