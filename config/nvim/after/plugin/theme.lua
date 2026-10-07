@@ -1,6 +1,5 @@
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim" },
-	{ src = "https://github.com/nvim-mini/mini.icons" },
 })
 
 -- Colorscheme
@@ -13,6 +12,3 @@ require("catppuccin").setup({
 	},
 })
 vim.cmd.colorscheme("catppuccin")
-
--- File icons
-require("mini.icons").setup()
