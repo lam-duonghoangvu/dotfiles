@@ -21,14 +21,9 @@ blink.setup({
 		},
 
 		menu = {
-			border = "rounded",
-			winblend = 0,
-			winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-			scrollbar = false,
+			border = "single",
 			draw = {
-				gap = 1,
 				columns = {
-					{ "kind_icon" },
 					{ "label", "label_description", gap = 1 },
 					{ "kind", gap = 1 },
 				},

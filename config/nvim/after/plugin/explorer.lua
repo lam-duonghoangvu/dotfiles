@@ -5,17 +5,7 @@ vim.pack.add({
 
 -- File tree
 require("mini.files").setup({
-	windows = {
-		width_focus = 25,
-		width_nofocus = 12,
-	},
-})
-
-vim.api.nvim_create_autocmd("User", {
-	pattern = "MiniFilesWindowOpen",
-	callback = function(args)
-		vim.api.nvim_win_set_config(args.data.win_id, { border = "rounded" })
-	end,
+	content = { prefix = function() end },
 })
 
 vim.keymap.set("n", "<CR>", function()

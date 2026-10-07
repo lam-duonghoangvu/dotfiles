@@ -6,20 +6,17 @@ vim.pack.add({
 local notify = require("mini.notify")
 
 notify.setup({
+	-- Remove default timestamp shown
 	content = {
 		format = function(notif)
 			return notif.msg
 		end,
 	},
-	lsp_progress = {
-		enable = true,
-	},
+	-- Remove obvious "Notification" title
 	window = {
 		config = {
-			border = "rounded",
 			title = "",
 		},
-		winblend = 0,
 	},
 })
 
