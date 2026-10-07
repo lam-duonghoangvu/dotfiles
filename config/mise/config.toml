@@ -24,7 +24,6 @@ uv = "latest"
 
 [dotfiles]
 "~/.config/bat" = "~/.dotfiles/config/bat"
-"~/.config/btop" = "~/.dotfiles/config/btop"
 "~/.config/ghostty" = "~/.dotfiles/config/ghostty"
 "~/.config/mise" = "~/.dotfiles/config/mise"
 "~/.config/nvim" = "~/.dotfiles/config/nvim"
