@@ -5,21 +5,8 @@ vim.pack.add({
 })
 
 -- Autocomplete
-local blink = require("blink.cmp")
-
-blink.setup({
-	keymap = {
-		preset = "default",
-		["<C-p>"] = { "select_prev", "fallback" },
-		["<C-n>"] = { "select_next", "fallback" },
-		["<C-y>"] = { "accept", "fallback" },
-	},
-
+require("blink.cmp").setup({
 	completion = {
-		list = {
-			selection = { preselect = true, auto_insert = false },
-		},
-
 		menu = {
 			border = "single",
 			draw = {
@@ -29,36 +16,13 @@ blink.setup({
 				},
 			},
 		},
-		ghost_text = { enabled = true },
 	},
 
-	sources = {
-		default = { "lsp", "buffer" },
-	},
-
-	cmdline = {
-		enabled = true,
-		keymap = { preset = "cmdline" },
-		completion = { menu = { auto_show = true } },
-		sources = function()
-			local type = vim.fn.getcmdtype()
-			-- Use buffer source for `/` and `?` (search)
-			if type == "/" or type == "?" then
-				return { "buffer" }
-			end
-			-- Use cmdline & path source for ':' (command-line)
-			if type == ":" or type == "@" then
-				return { "cmdline", "path" }
-			end
-			return {}
-		end,
-	},
+	cmdline = { completion = { menu = { auto_show = true } } },
 })
 
 -- Autoformat
-local conform = require("conform")
-
-conform.setup({
+require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "ruff_format", "ruff_organize_imports" },
@@ -69,10 +33,7 @@ conform.setup({
 		typescriptreact = { "dprint" },
 		markdown = { "dprint" },
 	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
+	format_on_save = {},
 })
 
 -- LSP

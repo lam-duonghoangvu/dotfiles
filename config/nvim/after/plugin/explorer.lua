@@ -5,6 +5,7 @@ vim.pack.add({
 
 -- File tree
 require("mini.files").setup({
+	-- Remove file icons
 	content = { prefix = function() end },
 })
 

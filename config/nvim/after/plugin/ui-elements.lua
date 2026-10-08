@@ -13,11 +13,7 @@ notify.setup({
 		end,
 	},
 	-- Remove obvious "Notification" title
-	window = {
-		config = {
-			title = "",
-		},
-	},
+	window = { config = { title = "" } },
 })
 
 vim.notify = notify.make_notify()
