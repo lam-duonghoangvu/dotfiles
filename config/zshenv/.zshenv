@@ -13,9 +13,5 @@ export PATH="$HOME/.local/scripts:$PATH"
 # Sessions directory
 export SHELL_SESSION_DIR="$XDG_STATE_HOME/zsh/sessions"
 
-# Pager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-
 # Brew
 [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
