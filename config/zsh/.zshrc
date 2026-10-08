@@ -56,7 +56,6 @@ alias ll="ls -FAlh --color=always"
 (( $+commands[mise] )) && eval "$(mise activate zsh)"
 
 # neovim
-(( $+commands[nvim] )) && alias nv="nvim"
 export EDITOR="${commands[nvim]:-vim}"
 
 # fzf
