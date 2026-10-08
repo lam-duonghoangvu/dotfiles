@@ -4,7 +4,6 @@ dotfiles.default_mode = "symlink"
 auto_update = true
 
 [tools]
-bat = "latest"
 claude-code = "latest"
 dprint = "latest"
 fd = "latest"
