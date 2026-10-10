@@ -3,9 +3,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.notify" },
 })
 
-local notify = require("mini.notify")
-
-notify.setup({
+require("mini.notify").setup({
 	-- Remove default timestamp shown
 	content = {
 		format = function(notif)
@@ -15,5 +13,3 @@ notify.setup({
 	-- Remove obvious "Notification" title
 	window = { config = { title = "" } },
 })
-
-vim.notify = notify.make_notify()

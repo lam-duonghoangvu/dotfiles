@@ -24,12 +24,35 @@ vim.opt.swapfile = false -- do not create a swapfile
 vim.opt.undofile = true -- keep undo history (default dir: ~/.local/state/nvim/undo)
 vim.opt.updatetime = 300 -- faster completion (default: 4000ms)
 
+vim.opt.winborder = "single" -- border for floating elements
+
+-- Diagnostic
 vim.diagnostic.config({
 	virtual_text = true,
 	float = {
-		border = "single",
 		header = "",
 		prefix = "",
 	},
 	severity_sort = true,
 })
+
+-- LSP
+vim.lsp.config("ruff", {
+	cmd = { "ruff", "server" },
+	filetypes = { "python" },
+	root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", ".git" },
+})
+
+vim.lsp.config("gopls", {
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod", "gowork" },
+	root_markers = { "go.work", "go.mod", ".git" },
+})
+
+vim.lsp.config("lua_ls", {
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
+	root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
+})
+
+vim.lsp.enable({ "ruff", "gopls", "lua_ls" })

@@ -22,9 +22,5 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without copy
 vim.keymap.set({ "n", "v" }, "<leader>c", [["_c]], { desc = "Change without copy deleted text" })
 
 -- Actions
-vim.keymap.set("n", "<leader><Esc>", ":nohlsearch<CR>", { desc = "Clear highlight" })
+vim.keymap.set("n", "<leader><Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlight" })
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
-
-vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover({ border = "single" })
-end, { desc = "Hover documentation with border" })

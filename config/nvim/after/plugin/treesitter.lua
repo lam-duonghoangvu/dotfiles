@@ -1,14 +1,20 @@
+-- Update parsers when the plugin updates (must be defined before vim.pack.add)
+vim.api.nvim_create_autocmd("PackChanged", {
+	callback = function(event)
+		if event.data.spec.name == "nvim-treesitter" and event.data.kind == "update" then
+			if not event.data.active then
+				vim.cmd.packadd("nvim-treesitter")
+			end
+			vim.cmd("TSUpdate")
+		end
+	end,
+})
+
 vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
--- Add treesitter runtime path to nvim runtime path for syntax hightlighting
-local ts_runtime = vim.fn.expand("~/.local/share/nvim/site/pack/core/opt/nvim-treesitter/runtime")
-if vim.uv.fs_stat(ts_runtime) then
-	vim.opt.rtp:append(ts_runtime)
-end
-
-local parsers = {
+require("nvim-treesitter").install({
 	"lua",
 	"vim",
 	"vimdoc",
@@ -21,31 +27,12 @@ local parsers = {
 	"tsx",
 	"html",
 	"css",
-	"gitignore",
-}
-
-local group = vim.api.nvim_create_augroup("Treesitter", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-	group = group,
-	callback = function()
-		if vim.bo.buftype ~= "" then
-			return
-		end
-		pcall(vim.treesitter.start, 0)
-	end,
 })
 
-pcall(function()
-	require("nvim-treesitter").install(parsers)
-end)
-
-vim.api.nvim_create_autocmd("PackChanged", {
-	callback = function(event)
-		if event.data.spec and event.data.spec.name == "nvim-treesitter" then
-			if not event.data.active then
-				vim.cmd.packadd("nvim-treesitter")
-			end
-			vim.cmd("TSUpdate")
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		if vim.bo.buftype == "" then
+			pcall(vim.treesitter.start)
 		end
 	end,
 })
